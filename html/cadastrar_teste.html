@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastrar_teste.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Cadastrar Teste</title>
+</head>
+<body>
+    <div class="conteudo">
+        <header class="header">
+            <img class="logo" src="../img/logo.png" alt="Cérebro">
+            <h1 class="titulo">Teste de Memória</h1>
+        </header>
+        <div class="containerConteudo">
+            <div class="containerForms">
+                <h2 class="tituloForm">Criar Teste</h2>
+                <form action="http://localhost:8081/add" method="POST">
+                    <div class="containerNome">
+                        <img class="lapisPng" src="../img/pencil.png" alt="Lápis">
+                        <label for="nometeste">Nome do Teste:</label>
+                        <input class="inputNomeTeste" type="text" id="nometeste" required>
+                    </div>
+                    <input class="btnForms" type="submit" value="Enviar" onclick="setTeste()">
+                </form> 
+            </div>
+            <h2 class="testeCriado">Testes Criados</h2>
+            <section id="sec"></section>
+            <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/'">Voltar</button>
+        </div>
+    </div>
+    <script src="../funcoes/funcoes_cadastrar_teste.js"></script>
+</body>
+</html>

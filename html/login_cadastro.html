@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login_cadastro.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Login</title>
+</head>
+<body>
+    <div class="conteudo">
+        <header class="header">
+            <img class="logo" src="../img/logo.png" alt="Cérebro">
+            <h1 class="titulo">Teste de Memória</h1>
+        </header>
+        <div class="containerConteudo">
+            <div class="containerForms">
+                <form class="form">
+                    <h2 class="tituloForm">Login</h2>
+                    <div class="containerEmail">
+                        <img class="emailPng" src="../img/email.png" alt="Email">
+                        <label for="emailInputLogin">Email</label>
+                    </div>
+                    <input type="email" id="emailInputLogin" required>
+                    <div class="containerSenha"> 
+                        <img class="senhaPng" src="../img/senha.png" alt="Senha">
+                        <label for="senhaInputLogin">Senha</label>
+                    </div>
+                    <input type="password" id="senhaInputLogin" required>
+                    <button class="btnForms" type="button" onclick="loginUsuario()">Login</button>
+                </form>
+                <form class="form"> 
+                    <h2 class="tituloForm">Cadastro</h2>
+                    <div class="containerEmail">
+                        <img class="emailPng" src="../img/email.png" alt="Email">
+                        <label for="emailInputCadastro">Email</label>
+                    </div>
+                    <input type="email" id="emailInputCadastro" required>
+                    <div class="containerSenha">
+                        <img class="senhaPng" src="../img/senha.png" alt="Senha">
+                        <label for="senhaInputCadastro">Senha</label>
+                    </div>
+                    <input type="password" id="senhaInputCadastro" required>
+                    <button class="btnForms" type="submit" onclick="cadastroUsuario()">Cadastrar</button>
+                </form>
+            </div>
+            <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080'">Voltar</button>
+        </div>
+    </div>
+    <script src="../funcoes/funcoes_login_cadastro.js"></script>
+</body>
+</html>
