@@ -28,7 +28,7 @@ class home extends React.Component{
             },
             responder: () => {
                 return (
-                    <Link to="/cadastrar">
+                    <Link to="/testes">
                          <button>
                             <div class="containerBtn">
                                 <p class="textoMargin">Responder teste</p>

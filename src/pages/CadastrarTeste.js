@@ -1,12 +1,12 @@
 import React from "react";
 
 
-import Testes from "../components/testes/index"
+import CadastrarTestes from "../components/cadastrarTeste/index"
 
 function CadastrarTeste(){
     return(
         <>
-            <Testes/>
+            <CadastrarTestes/>
         </>
     )
 }
