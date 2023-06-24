@@ -1,45 +1,55 @@
 import React from "react";
 import "./style.css"
 
+import {Link} from 'react-router-dom';
+
+import imgAddTeste from "../../img/addTeste.png";
+import imgAddTesteBranco from "../../img/addTesteBranco.png";
+import imgListaTeste from "../../img/listaTeste.png";
+import imgListaTesteBranco from "../../img/listaTesteBranco.png";
+import imgResponderTeste from "../../img/responderTeste.png";
+import imgResponderTesteBranco from "../../img/responderTesteBranco.png";
+
 class home extends React.Component{
+    
     menu= {
             cadastrar: () => {
                 return (
-                    <>
-                        <button onclick="window.location = 'http://localhost:8080/login'"> 
+                    <Link to="/cadastrar">
+                        <button> 
                             <div class="containerBtn">
                             <p class="textoMargin">Cadastrar teste </p> 
-                            <img class="imgBtn" src="../img/addTeste.png" alt="Adicionar teste"/>
-                            <img class="hoverImg" src="../img/addTesteBranco.png" alt="Adicionar teste"/>
+                            <img class="imgBtn" src={imgAddTeste} alt="Adicionar teste"/>
+                            <img class="hoverImg" src={imgAddTesteBranco} alt="Adicionar teste"/>
                         </div>
                         </button>
-                    </>
+                    </Link>
                 )
             },
             responder: () => {
                 return (
-                    <>
-                         <button onclick="window.location = 'http://localhost:8080/listadetestes'">
+                    <Link to="/cadastrar">
+                         <button>
                             <div class="containerBtn">
                                 <p class="textoMargin">Responder teste</p>
-                                <img class="imgBtn" src="../img/responderTeste.png" alt="Adicionar teste"/>
-                                <img class="hoverImg" src="../img/responderTesteBranco.png" alt="Adicionar teste"/> 
+                                <img class="imgBtn" src={imgResponderTeste} alt="Adicionar teste"/>
+                                <img class="hoverImg" src={imgResponderTesteBranco} alt="Adicionar teste"/> 
                             </div>
                         </button>
-                    </>
+                    </Link>
                 )
             },
             listarResultados: () => {
                 return (
-                    <>
-                        <button onclick="window.location = 'http://localhost:8080/resultados'">
-                            <div class="containerBtn">
-                                <p>Lista de resultados</p> 
-                                <img class="imgBtn" src="../img/listaTeste.png" alt="Adicionar teste"/>
-                                <img class="hoverImg" src="../img/listaTesteBranco.png" alt="Adicionar teste"/>
-                            </div>
-                        </button>
-                    </>
+                    <Link to="/cadastrar">
+                            <button>
+                                <div class="containerBtn">
+                                    <p class="textoMargin">Lista de resultados</p> 
+                                    <img class="imgBtn" src={imgListaTeste} alt="Adicionar teste"/>
+                                    <img class="hoverImg" src={imgListaTesteBranco} alt="Adicionar teste"/>
+                                </div>
+                            </button>
+                    </Link>
                 )
             }
     }
