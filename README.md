@@ -4,3 +4,4 @@ Site para criar e aplicar testes
 # verificar se der tempo
 - reduzir cod home
 - Separa css
+- Rota protegida
