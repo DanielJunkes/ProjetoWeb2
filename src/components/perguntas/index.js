@@ -1,6 +1,8 @@
 import React from "react";
 import "./style.css"
 
+import imgLapis from "../../img/pencil.png"
+
 class pergunta extends React.Component{
     menu = {
         responder: () => {
@@ -41,7 +43,7 @@ class pergunta extends React.Component{
                 <>
                     <form action="http://localhost:8081/add" method="POST">
                         <div class="containerNome">
-                            <img class="lapisPng" src="../img/pencil.png" alt="Lápis"/>
+                            <img class="lapisPng" src={imgLapis} alt="Lápis"/>
                             <label for="nometeste">Nome do Teste:</label>
                             <input class="inputNomeTeste" type="text" id="nometeste" required/>
                         </div>
