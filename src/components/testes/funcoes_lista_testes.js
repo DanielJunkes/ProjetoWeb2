@@ -5,7 +5,6 @@ async function getTeste() {
     try {
         const response = await fetch('http://localhost:8081')
         const data = await response.json();
-        
         for(let teste of data) {
 
             numTest++;
