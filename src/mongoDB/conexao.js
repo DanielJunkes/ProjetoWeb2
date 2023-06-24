@@ -1,13 +1,25 @@
-// require("dotenv").config();
-const mongo =  require("mongoose");
+// import { connect } from "mongoose";
+// const { connect } =  require("mongoose");
+import React from "react"
 
-function conectarBanco(collection) {
-    mongo.connect("mongodb+srv://admin:admin@cluster0.vgsfpe0.mongodb.net/")
 
-    mongo.connection.on('connected', function(){
-        console.log("MongoDB conectado")
-    })
+import mongoose from 'mongoose';
 
+mongoose.connect('mongodb+srv://admin:admin@cluster0.vgsfpe0.mongodb.net/', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+
+
+export function conectarBanco() {
+    // await connect(CONECTION, {
+    //     useNewUrlParser: true,
+    //     useUnifiedTopology: true
+    // });
+    console.log(process.env.CONECTION);
 }
 
-export default conectarBanco
+
+// module.exports = conectarBanco
+// export default conectarBanco
