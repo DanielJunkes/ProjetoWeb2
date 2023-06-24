@@ -6,8 +6,6 @@ import Cadastro from "./components/cadastro"
 import Login from "./components/login"
 import Botao from "./components/botoes"
 
-
-
 function App() {
   return (
     <div className="App">

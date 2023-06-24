@@ -1,4 +1,5 @@
 import React from "react";
+import "./style.css"
 
 class pergunta extends React.Component{
     menu = {
