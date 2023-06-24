@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 
 
 import Inicio from "./pages/HomePage.js";
-import Cadastrar from "./pages/Cadastrar.js";
+import Cadastrar from "./pages/CadastrarLogin.js";
 
 export default () =>{
     return (
