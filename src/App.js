@@ -9,13 +9,7 @@ import Botao from "./components/botoes"
 function App() {
   return (
     <div className="App">
-     <Header/>
      <Home/>
-     <Resultado/>
-     <Pergunta/>
-     <Cadastro/>
-     <Login/>
-     <Botao/>
     </div>
   );
 }
