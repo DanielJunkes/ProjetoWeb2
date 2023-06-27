@@ -3,21 +3,18 @@
 import React from "react"
 
 
-import mongoose from 'mongoose';
-
-mongoose.connect('mongodb+srv://admin:admin@cluster0.vgsfpe0.mongodb.net/', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-
 
 
 export function conectarBanco() {
-    // await connect(CONECTION, {
-    //     useNewUrlParser: true,
-    //     useUnifiedTopology: true
-    // });
-    console.log(process.env.CONECTION);
+  // mongoose.connect('mongodb+srv://admin:admin@cluster0.vgsfpe0.mongodb.net/', {
+  //   useNewUrlParser: true,
+  //   useUnifiedTopology: true,
+  // });
+
+  // mongoose.connection.on('connected', function(){
+  //   console.log("MongoDB conectado")
+  //   })
+    
 }
 
 
