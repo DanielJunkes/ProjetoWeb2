@@ -3,8 +3,8 @@ function loginUsuario() {
     const senha = document.getElementById("senhaInputLogin").value;
     
     if(email!="" && senha!="") {
-        fetch('http://localhost:8080/auth/signin', {
-            method: "POST",
+        fetch('http://localhost:8080/login/'+nome, {
+            method: "GET",
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({"email": email, "senha": senha})
         })
@@ -12,7 +12,6 @@ function loginUsuario() {
             if(!response.ok){
                 throw new Error('Response error');
             }
-            window.location = 'http://localhost:8080/login/cadastrodetestes';
             return response.json();
         })
         .then(data => {
@@ -31,7 +30,7 @@ function cadastroUsuario() {
     const senha = document.getElementById("senhaInputCadastro").value;
 
     if(email!="" && senha!="") {
-        fetch('http://localhost:8080/auth/signup', {
+        fetch('http://localhost:8080/createusuario', {
             method: "POST",
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify({"email": email, "senha": senha})
@@ -40,7 +39,6 @@ function cadastroUsuario() {
             if(!response.ok){
                 throw new Error('Response error');
             }
-            window.location = 'http://localhost:8080/login/cadastrodetestes';
             return response.json();
         })
         .then(data => {
