@@ -2,9 +2,10 @@ const express = require('express');
 const usuariosBD = require("../mongoDB/dao/usuario.js");
 const testesBD = require("../mongoDB/dao/testes.js");
 const resultadosBD = require("../mongoDB/dao/resultados.js");
-
+const cors = require("cors");
 const router = express.Router();
 
+router.use(cors());
 
 //rota dos testes
 
@@ -70,8 +71,9 @@ router.get('/login/:nome', async (req, res) => {
 
  router.post('/createusuario', (req, res) => {
      const dados = req.body
+     console.log(dados);
      usuariosBD(dados).save()
-     res.json(dados)
+     res.send(req.body)
  });
  
 //  router.put('putusuario/:id', (req, res) => {
