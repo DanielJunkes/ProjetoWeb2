@@ -73,6 +73,7 @@ router.get('/login/:nome', async (req, res) => {
      const dados = req.body
      console.log(dados);
      usuariosBD(dados).save()
+     console.log(req.body);
      res.send(req.body)
  });
  
