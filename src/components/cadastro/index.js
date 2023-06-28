@@ -7,14 +7,14 @@ import imgSenha from "../../img/senha.png"
 class cadastro extends React.Component{
     render() {
         function cadastroUsuario(){
-            const email = document.getElementById("emailInputCadastro").value;
+            const nome = document.getElementById("emailInputCadastro").value;
             const senha = document.getElementById("senhaInputCadastro").value;
         
-            if(email!="" && senha!="") {
+            if(nome!=="" && senha!=="") {
                 fetch('http://localhost:8080/createusuario', {
                     method: "POST",
                     headers: {'Content-type': 'application/json'},
-                    body: JSON.stringify({"email": email, "senha": senha})
+                    body: JSON.stringify({"nome": nome, "senha": senha})
                 })
                 .then(response => {
                     if(!response.ok){
@@ -29,7 +29,7 @@ class cadastro extends React.Component{
                     console.log('Erro com a operação fetch', error);
                 });
             } else {
-                alert("Senha e ou email estão vazios")
+                alert("Senha e ou nome estão vazios")
             }
         }
         return(
@@ -46,7 +46,7 @@ class cadastro extends React.Component{
                         <label for="senhaInputCadastro">Senha</label>
                     </div>
                     <input type="password" id="senhaInputCadastro" required/>
-                    <button class="btnForms" type="submit" onclick="cadastroUsuario()">Cadastrar</button>
+                    <button class="btnForms" type="submit" onclick={cadastroUsuario()}>Cadastrar</button>
                 </form>
             </>
             )
