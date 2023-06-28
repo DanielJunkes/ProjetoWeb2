@@ -12,9 +12,9 @@ class login extends React.Component{
                 <h2 class="tituloForm">Login</h2>
                 <div class="containerEmail">
                     <img class="emailPng" src={imgLogin} alt="Email"/>
-                    <label for="emailInputLogin">Email</label>
+                    <label for="emailInputLogin">Nome</label>
                 </div>
-                <input type="email" id="emailInputLogin" required/>
+                <input type="txt" id="emailInputLogin" required/>
                 <div class="containerSenha"> 
                     <img class="senhaPng" src={imgSenha} alt="Senha"/>
                     <label for="senhaInputLogin">Senha</label>

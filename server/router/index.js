@@ -13,27 +13,27 @@ router.get('/testes', async (req, res) => {
     res.json(per)
  })
 
-router.post('/createteste', (req, res) => {
-    const dados = req.body
-    testesBD.create(dados)
-    res.json(dados)
-});
+// router.post('/createteste', (req, res) => {
+//     const dados = req.body
+//     testesBD.create(dados)
+//     res.json(dados)
+// });
 
-router.put('putteste/:id', (req, res) => {
-    const dados = {
-        id: req.params.id,
-        pergunta: req.body
-    };
+// router.put('putteste/:id', (req, res) => {
+//     const dados = {
+//         id: req.params.id,
+//         pergunta: req.body
+//     };
     
-    perguntaDB.update(dados)
-    res.json(dados)
-});
+//     perguntaDB.update(dados)
+//     res.json(dados)
+// });
 
-router.delete('/deleteteste/:id',  (req, res) => {
-    const dados = req.params.id
-    perguntaDB.create(dados)
-    res.json(dados)
-});
+// router.delete('/deleteteste/:id',  (req, res) => {
+//     const dados = req.params.id
+//     perguntaDB.create(dados)
+//     res.json(dados)
+// });
 
 //rota dos resultados
 router.get('/resultados', async (req, res) => {
@@ -41,24 +41,24 @@ router.get('/resultados', async (req, res) => {
     res.json(per)
 })
 
-router.post('/createresultado', (req, res) => {
-    const dados = req.body
-    perguntaDB.create(dados)
-    res.json(dados)
-});
+// router.post('/createresultado', (req, res) => {
+//     const dados = req.body
+//     perguntaDB.create(dados)
+//     res.json(dados)
+// });
 
-router.delete('/deleteresultado/:id',  (req, res) => {
-    const dados = req.params.id
-    perguntaDB.create(dados)
-    res.json(dados)
-});
+// router.delete('/deleteresultado/:id',  (req, res) => {
+//     const dados = req.params.id
+//     perguntaDB.create(dados)
+//     res.json(dados)
+// });
 
 //rota do usuario (login e cadastro)
 router.get('/login/:nome', async (req, res) => {
     const dados = {
         nome: req.params.nome,
-    };
-    const usu = usuariosBD.find(dados)
+    }
+    const usu = await usuariosBD.find(dados)
     res.json(usu)
  })
  
@@ -70,24 +70,24 @@ router.get('/login/:nome', async (req, res) => {
 
  router.post('/createusuario', (req, res) => {
      const dados = req.body
-     perguntaDB.create(dados)
+     usuariosBD.save(dados)
      res.json(dados)
  });
  
- router.put('putusuario/:id', (req, res) => {
-    const dados = {
-        id: req.params.id,
-        pergunta: req.body
-    };
+//  router.put('putusuario/:id', (req, res) => {
+//     const dados = {
+//         id: req.params.id,
+//         pergunta: req.body
+//     };
     
-    perguntaDB.update(dados)
-    res.json(dados)
- });
+//     perguntaDB.update(dados)
+//     res.json(dados)
+//  });
 
- router.delete('/deleteusuario/:id',  (req, res) => {
-     const dados = req.params.id
-     perguntaDB.create(dados)
-     res.json(dados)
- });
+//  router.delete('/deleteusuario/:id',  (req, res) => {
+//      const dados = req.params.id
+//      perguntaDB.create(dados)
+//      res.json(dados)
+//  });
 
 module.exports = router;
