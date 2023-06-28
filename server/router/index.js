@@ -70,7 +70,7 @@ router.get('/login/:nome', async (req, res) => {
 
  router.post('/createusuario', (req, res) => {
      const dados = req.body
-     usuariosBD.save(dados)
+     usuariosBD(dados).save()
      res.json(dados)
  });
  
