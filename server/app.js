@@ -2,6 +2,7 @@ const routers = require("express")
 const cors = require("cors")
 
 const router = require("./router/index.js")
+const routerLogin = require("./router/login.js")
 
 const app = routers()
 
@@ -19,6 +20,7 @@ app.use(routers.json())
 app.use(routers.urlencoded({extended: false}))
 
 app.use("/", router);
+app.use("/user", routerLogin)
 
 app.listen(8080, ()=> {
     console.log("Rodando na 8080");

@@ -1,9 +1,14 @@
 import React from "react";
 import "./style.css"
 
-
-
 class login extends React.Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            "name": "",
+        }
+    }
+
     render() {
         return(
             <>
@@ -11,6 +16,7 @@ class login extends React.Component{
                     <div class="containerConteudo">
                         <h2 class="tituloConteudo">Lista de Testes</h2>
                         <div class="containerTestes">
+                            <p></p>
                             <section id="sec"></section>
                             <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080'">Voltar</button>
                         </div>

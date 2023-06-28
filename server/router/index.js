@@ -9,6 +9,8 @@ router.use(cors());
 
 //rota dos testes
 
+
+
 router.get('/testes', async (req, res) => {
     const per = await testesBD.find();
     res.json(per)
@@ -68,14 +70,6 @@ router.get('/login/:nome', async (req, res) => {
 
     res.json(per)
  })
-
- router.post('/createusuario', (req, res) => {
-     const dados = req.body
-     console.log(dados);
-     usuariosBD(dados).save()
-     console.log(req.body);
-     res.send(req.body)
- });
  
 //  router.put('putusuario/:id', (req, res) => {
 //     const dados = {

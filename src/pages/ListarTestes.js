@@ -5,7 +5,7 @@ import Testes from '../components/testes/index';
 function ListarTestes() {
     return (
         <>
-            <Testes />
+            <Testes nome="aa"/>
         </>
     )
 }

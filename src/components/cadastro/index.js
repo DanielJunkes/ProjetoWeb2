@@ -19,7 +19,7 @@ class cadastro extends React.Component{
         const senha = document.getElementById("senhaInputCadastro").value;
     
         if(nome!=="" && senha!=="") {
-            fetch('http://localhost:8080/createusuario', {
+            fetch('http://localhost:8080/user/create', {
                 method: "POST",
                 headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({"nome": nome, "senha": senha})
