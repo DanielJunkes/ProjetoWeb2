@@ -1,30 +1,29 @@
 const express = require('express');
-const usuariosBD = require("../mongoDB/dao/usuario.js");
+const testeBD = require("../mongoDB/dao/testes.js");
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    const dados = req.body
-    const per = await usuariosBD.find();
+    const per = await testeBD.find();
     res.json(per)
  })
 
 router.post('/create', (req, res) => {
      const dados = req.body
-     usuariosBD(dados).save()
+     testeBD(dados).save()
      res.send(req.body)
  });
 
 router.put('/update', async (req, res) => {
     const dados = req.body;
-    await usuariosBD.findByIdAndUpdate(dados.id, {nome: dados.nome, senha: dados.senha});
+    await testeBD.findByIdAndUpdate(dados.id, {nome: dados.nome, senha: dados.senha});
     res.send(dados);
 });
 
 
 router.delete('/delete', async (req, res) => {
     const dados = req.body
-    await usuariosBD.findByIdAndDelete(dados.id)
+    await testeBD.findByIdAndDelete(dados.id)
     res.send(dados)
 })
 

@@ -14,7 +14,6 @@ class cadastro extends React.Component{
     }
     
     cadastroUsuario = () => {
-        console.log("kkk");
         const nome = document.getElementById("emailInputCadastro").value;
         const senha = document.getElementById("senhaInputCadastro").value;
     

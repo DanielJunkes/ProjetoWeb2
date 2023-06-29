@@ -1,35 +1,52 @@
 import React from "react";
-import Testes from '../components/testes/index';
+import Axios from 'axios'
+import Testes from '../components/testes';
 
+import { useEffect } from "react";
 
-function ListarTestes() {
-// class ListarTestes extends React.Component() {
-    // constructor(props) {
-    //     super(props)
-    //     this.API_URL = "http://localhost:8080/data/herois"
-    //     this.state = {
-    //         "herois": [],
-    //         "selecionado": null
-    //     }
-    // }
-
+// function ListarTestes() {
+class ListarTestes extends React.Component {
+    constructor(props) {
+        super(props)
+        this.API_URL = "http://localhost:8080/testes"
+        this.state = {
+            "perguntas": [{
+                "id":"0",
+            "title": "abc"
+            },
+            {
+                "title": "123"
+        }]
+        }
+    }
     
-    // getTestes = () => {
-    //     const requisicao = fetch(this.API_URL)
+    // getTeste = () => {
+    //     const Perguntas = [];
+    //     fetch(this.API_URL)
     //      .then((resposta) => {
-    //         this.setState({
-    //             "herois": resposta.data
+    //         return resposta.json()
+    //     }).then((data => {
+    //         data.map((item) => {
+    //             Perguntas.push(item.title)
     //         })
-    //     })  
+    //     }))
+
+        // this.setState({
+        //     "perguntas": Perguntas
+        // })
     // }
 
-    // render() {
+    render() {
+    
         return (
             <>
-                <Testes nome="aa"/>
+            {/* {this.getTeste} */}
+            {/* {console.log(this.state.perguntas)} */}
+                <Testes Perguntas_={this.state.perguntas}/>
+                {/* Perguntas_={this.state.perguntas} */}
             </>
         )
-    // }
+    }
 }
 
 export default ListarTestes

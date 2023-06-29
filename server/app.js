@@ -3,6 +3,7 @@ const cors = require("cors")
 
 const router = require("./router/index.js")
 const routerLogin = require("./router/login.js")
+const routerTestes = require("./router/testes.js")
 
 const app = routers()
 
@@ -21,11 +22,8 @@ app.use(routers.urlencoded({extended: false}))
 
 app.use("/", router);
 app.use("/user", routerLogin)
+app.use("/testes", routerTestes)
 
 app.listen(8080, ()=> {
     console.log("Rodando na 8080");
 });
-
-
-
-

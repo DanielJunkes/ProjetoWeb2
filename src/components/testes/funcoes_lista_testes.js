@@ -3,7 +3,7 @@ var numTest = 0
 
 async function getTeste() {
     try {
-        const response = await fetch('http://localhost:8081')
+        const response = await fetch('http://localhost:8080')
         const data = await response.json();
         for(let teste of data) {
 
@@ -19,7 +19,7 @@ async function getTeste() {
             var botao = document.createElement("input")
             botao.type = "button"
             botao.setAttribute("value", "Responder Teste")
-            botao.setAttribute("onclick", "window.location='http://localhost:8080/listadetestes/"+teste.title+"/responderteste'")
+            botao.setAttribute("onclick", "window.location='http://localhost:8080/teste'")
 
             htmlTeste.appendChild(txtTeste)
 
