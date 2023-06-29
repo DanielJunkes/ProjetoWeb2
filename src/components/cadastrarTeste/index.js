@@ -1,34 +1,63 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.css"
 
 import imgLapis from "../../img/pencil.png"
-import { useState } from "react";
 
 const CadastrarTeste = () =>{
 
-    const [nomeDoTeste, setNomeDoTeste] = useState("");
-
-    const handleInputChange = ({value}) => {
-        console.log(value)
-        setNomeDoTeste(value)
-    }
-
     const addTeste = async () =>{
         try{
-            console.log(nomeDoTeste)
+            const perguntasD = {pergunta: " "}
+            const nome = document.getElementById("nometeste").value
+            if(nome !== ''){
+                 const teste = {
+                titulo: nome,
+                perguntas: perguntasD
+            }
+            const testeK = JSON.stringify(teste)
+            console.log(testeK)
                 await fetch('http://localhost:8080/testes/create', {
                     method: "POST",
                     headers: {'Content-type': 'application/json'},
-                    body: {
-                        teste: nomeDoTeste,
-                        perguntas: "",
-                    }
+                    body:
+                        testeK
+                    })
+                .then(response => {
+                    return response.json()
                 })
+                .then(data => {
+                    console.log(data)
+                })
+            }else{
+                alert("Nome em Branco")
+            }
+           
         }catch(e){
             console.log(e)
         }
     }
 
+    const listarTestes = async() =>{
+        try{
+            console.log("aaaa")
+             await fetch('http://localhost:8080/testes/', {
+            method: "GET",
+            headers: {'Content-type': 'application/json'},
+            })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+        })
+        }
+       catch(e){
+            console.log(e)
+        }
+        }
+        useEffect(()=>{
+            listarTestes()
+        }, [])
         return(
             <>
                 <div className="containerConteudo">
@@ -37,7 +66,7 @@ const CadastrarTeste = () =>{
                             <div className="containerNome">
                                 <img className="lapisPng" src={imgLapis} alt="Lápis"/>
                                 <label for="nometeste">Nome do Teste:</label>
-                                <input className="inputNomeTeste" type="text" id="nometeste" onChange={(e) => handleInputChange(e.target.value)} value={nomeDoTeste} required/>
+                                <input className="inputNomeTeste" type="text" id="nometeste" required/>
                             </div>
                             <button className="btnForms"  value="Enviar" onClick={addTeste}/>
                         </div>

@@ -1,6 +1,7 @@
 const express = require('express');
 const testeBD = require("../mongoDB/dao/testes.js");
 
+
 const router = express.Router();
 
 router.get('/', async (req, res) => {
