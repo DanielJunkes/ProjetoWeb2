@@ -1,20 +1,19 @@
 import React from "react";
 import "./style.css"
 
+import {Link} from 'react-router-dom';
+
 import imgEmail from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
 
 class cadastro extends React.Component{
     constructor(props) {
-        super(props)
-        this.state = {
-            nome: "",
-            senha: "",
+        this.state= {
+            "opcao": String,
+            }
         }
-    }
     
     cadastroUsuario = () => {
-        console.log("kkk");
         const nome = document.getElementById("emailInputCadastro").value;
         const senha = document.getElementById("senhaInputCadastro").value;
     
@@ -31,7 +30,7 @@ class cadastro extends React.Component{
                 return response.json();
             })
             .then(data => {
-                console.log(data);
+                <Link to="testes"/>
             })
             .catch(error => {
                 console.log('Erro com a operação fetch', error);
@@ -62,5 +61,4 @@ class cadastro extends React.Component{
             )
     }
 }
-
 export default cadastro

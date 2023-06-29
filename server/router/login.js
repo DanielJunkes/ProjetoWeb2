@@ -1,12 +1,23 @@
 const express = require('express');
 const usuariosBD = require("../mongoDB/dao/usuario.js");
+const { hash, compare } = require("bcryptjs");
 
 const router = express.Router();
 
-router.get('/login', async (req, res) => {
-    const dados = req.body
-    const per = await usuariosBD.find();
-    res.json(per)
+router.get('/login/:nome', async (req, res) => {
+    const dados = {
+        nome: req.params.nome
+    }
+    const usuario = await usuariosBD.findOne(dados)
+    
+    if(!usuario){
+        return res.status(500).json({
+            message: "Usuario não existe",
+            type: "error",
+        });
+    }else{
+        res.json(usuario)
+    }
  })
 
 router.post('/create', (req, res) => {

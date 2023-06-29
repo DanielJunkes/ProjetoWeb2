@@ -18,11 +18,11 @@ export default () =>{
             <Header/>
             <Routes>
                 <Route element = {<Inicio />} exact path='/' />
-                <Route element = {<Cadastrar />} exact path='/cadastrar' />
+                <Route element = {<Cadastrar />} path="/cadastrar" />
                 <Route element = {<Testes />} exact path='/testes' />
-                <Route element = {<CadastroPerguntas />} exact path='/addpergunta' />
+                <Route element = {<CadastroPerguntas />} path='/addpergunta' />
                 <Route element = {<CadastrarTeste />} exact path='/addteste' />
-                <Route element = {<ResponderTeste />} exact path='/responder' />
+                <Route element = {<ResponderTeste />} path='/responder' />
                 <Route element = {<Resultados />} exact path='/resultados' />
             </Routes>
         </>

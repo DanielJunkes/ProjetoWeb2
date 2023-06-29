@@ -11,11 +11,15 @@ import imgResponderTeste from "../../img/responderTeste.png";
 import imgResponderTesteBranco from "../../img/responderTesteBranco.png";
 
 class home extends React.Component{
-    
+    constructor (props){
+        this.state={
+            "opcao": String
+        }
+    }
     menu= {
             cadastrar: () => {
                 return (
-                    <Link to="/cadastrar">
+                    <Link to="/at/cadastrar">
                         <button> 
                             <div class="containerBtn">
                             <p class="textoMargin">Cadastrar teste </p> 
@@ -28,7 +32,7 @@ class home extends React.Component{
             },
             responder: () => {
                 return (
-                    <Link to="/testes">
+                    <Link to="/t/cadastrar">
                          <button>
                             <div class="containerBtn">
                                 <p class="textoMargin">Responder teste</p>
@@ -41,7 +45,7 @@ class home extends React.Component{
             },
             listarResultados: () => {
                 return (
-                    <Link to="/cadastrar">
+                    <Link to="/r/cadastrar">
                             <button>
                                 <div class="containerBtn">
                                     <p class="textoMargin">Lista de resultados</p> 
