@@ -1,18 +1,17 @@
 import React from "react";
 import "./style.css"
 
-class responderTeste extends React.Component {
-   render() {
+const ResponderTeste = () => {
     return (
         <>
-           <div class="containerConteudo">
+           <div className="containerConteudo">
             <h2 id="nome">Teste: </h2>
             <section id="sec">
                 <form action="" id="formu">
                     <h2 id="pergunta"></h2>
                     <input type="text" id="pergunta" value="Pergunta:" disabled/>
-                    <p class="instrucao">Selecione a resposta correta: </p>
-                    <input class="opcaoA" type="radio" id="opcaoA" name="opcao" value=""/>
+                    <p className="instrucao">Selecione a resposta correta: </p>
+                    <input className="opcaoA" type="radio" id="opcaoA" name="opcao" value=""/>
                     <label for="opcaoA">a)</label>
                     <input type="radio" id="opcaoB" name="opcao" value=""/>
                     <label for="opcaoB">b)</label>
@@ -23,16 +22,15 @@ class responderTeste extends React.Component {
                     <input type="radio" id="opcaoE" name="opcao" value=""/>
                     <label for="opcaoE">e)</label>
                 </form>
-                <div class="containerBotoes" id="botao">
-                    <input id="prox" class="btn" type="button" value="Próxima Pergunta" onclick="getReposta()"/>
-                    <input id="cancelar" class="btn" type="button" value="Parar Teste" onclick="testFinalizado()"/>
+                <div className="containerBotoes" id="botao">
+                    <input id="prox" className="btn" type="button" value="Próxima Pergunta" onclick="getReposta()"/>
+                    <input id="cancelar" className="btn" type="button" value="Parar Teste" onclick="testFinalizado()"/>
                 </div>
             </section>
-            <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/listadetestes'">Cancelar</button>
+            <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/listadetestes'">Cancelar</button>
         </div>
         </>
     )
    }
-}
 
-export default responderTeste
+export default ResponderTeste

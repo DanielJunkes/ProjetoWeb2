@@ -1,12 +1,12 @@
 import React from "react";
 import "./style.css"
 
-class login extends React.Component{
+const Botoes = () =>{
     menu = {
         voltar: () => {
             return (
                 <>
-                    <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Voltar</button>
+                    <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Voltar</button>
                 </>
             )
         },
@@ -14,7 +14,7 @@ class login extends React.Component{
         cancelar: () => {
             return (
                 <>
-                    <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
+                    <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
                 </>
             )
         },
@@ -22,14 +22,13 @@ class login extends React.Component{
         proximo: () => {
             return (
                 <>
-                    <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Proximo</button>
+                    <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Proximo</button>
                 </>
             )
         },
 
     }
 
-    render() {
         return(
             <>
                 <this.menu.voltar/>
@@ -39,6 +38,5 @@ class login extends React.Component{
         )
     }
 
-}
 
-export default login
+export default Botoes

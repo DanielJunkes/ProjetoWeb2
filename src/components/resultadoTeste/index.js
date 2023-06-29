@@ -1,10 +1,9 @@
 import React from "react";
 import "./style.css"
 
-class resultado extends React.Component{
-    render() {
+const Resultado = () =>{
         return(
-            <div class="containerResultado "id="result${indice}">
+            <div className="containerResultado "id="result${indice}">
                 <h2>result.teste</h2>
                 <h3>Quantidade de perguntas: </h3>
                 <p>result.qtd_perguntas</p>
@@ -13,6 +12,5 @@ class resultado extends React.Component{
             </div>
         )
     }
-}
 
-export default resultado
+export default Resultado

@@ -3,7 +3,7 @@ import React from "react";
 
 import ResponderTestes from "../components/responderTeste/index"
 
-function ResponderTeste(){
+const ResponderTeste = () =>{
     return(
         <>
             <ResponderTestes/>

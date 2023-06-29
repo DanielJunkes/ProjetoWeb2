@@ -10,21 +10,17 @@ import imgListaTesteBranco from "../../img/listaTesteBranco.png";
 import imgResponderTeste from "../../img/responderTeste.png";
 import imgResponderTesteBranco from "../../img/responderTesteBranco.png";
 
-class home extends React.Component{
-    constructor (props){
-        this.state={
-            "opcao": String
-        }
-    }
-    menu= {
+const Home = () =>{
+
+    const menu= {
             cadastrar: () => {
                 return (
-                    <Link to="/at/cadastrar">
+                    <Link to="/cadastrar">
                         <button> 
-                            <div class="containerBtn">
-                            <p class="textoMargin">Cadastrar teste </p> 
-                            <img class="imgBtn" src={imgAddTeste} alt="Adicionar teste"/>
-                            <img class="hoverImg" src={imgAddTesteBranco} alt="Adicionar teste"/>
+                            <div className="containerBtn">
+                            <p className="textoMargin">Cadastrar teste </p> 
+                            <img className="imgBtn" src={imgAddTeste} alt="Adicionar teste"/>
+                            <img className="hoverImg" src={imgAddTesteBranco} alt="Adicionar teste"/>
                         </div>
                         </button>
                     </Link>
@@ -32,12 +28,12 @@ class home extends React.Component{
             },
             responder: () => {
                 return (
-                    <Link to="/t/cadastrar">
+                    <Link to="/cadastrar">
                          <button>
-                            <div class="containerBtn">
-                                <p class="textoMargin">Responder teste</p>
-                                <img class="imgBtn" src={imgResponderTeste} alt="Adicionar teste"/>
-                                <img class="hoverImg" src={imgResponderTesteBranco} alt="Adicionar teste"/> 
+                            <div className="containerBtn">
+                                <p className="textoMargin">Responder teste</p>
+                                <img className="imgBtn" src={imgResponderTeste} alt="Adicionar teste"/>
+                                <img className="hoverImg" src={imgResponderTesteBranco} alt="Adicionar teste"/> 
                             </div>
                         </button>
                     </Link>
@@ -45,12 +41,12 @@ class home extends React.Component{
             },
             listarResultados: () => {
                 return (
-                    <Link to="/r/cadastrar">
+                    <Link to="/cadastrar">
                             <button>
-                                <div class="containerBtn">
-                                    <p class="textoMargin">Lista de resultados</p> 
-                                    <img class="imgBtn" src={imgListaTeste} alt="Adicionar teste"/>
-                                    <img class="hoverImg" src={imgListaTesteBranco} alt="Adicionar teste"/>
+                                <div className="containerBtn">
+                                    <p className="textoMargin">Lista de resultados</p> 
+                                    <img className="imgBtn" src={imgListaTeste} alt="Adicionar teste"/>
+                                    <img className="hoverImg" src={imgListaTesteBranco} alt="Adicionar teste"/>
                                 </div>
                             </button>
                     </Link>
@@ -58,15 +54,13 @@ class home extends React.Component{
             }
     }
 
-    render() {
         return (
             <div>
-                <this.menu.cadastrar/>
-                <this.menu.responder/>
-                <this.menu.listarResultados/>
+                <menu.cadastrar/>
+                <menu.responder/>
+                <menu.listarResultados/>
             </div>
         )
     }
-}
 
-export default home
+export default Home

@@ -3,8 +3,8 @@ import "./style.css"
 
 import imgLapis from "../../img/pencil.png"
 
-class pergunta extends React.Component{
-    menu = {
+const Pergunta = () =>{
+    const menu = {
         responder: () => {
             return(
                 <>
@@ -42,27 +42,25 @@ class pergunta extends React.Component{
             return(
                 <>
                     <form action="http://localhost:8081/add" method="POST">
-                        <div class="containerNome">
-                            <img class="lapisPng" src={imgLapis} alt="Lápis"/>
+                        <div className="containerNome">
+                            <img className="lapisPng" src={imgLapis} alt="Lápis"/>
                             <label for="nometeste">Nome do Teste:</label>
-                            <input class="inputNomeTeste" type="text" id="nometeste" required/>
+                            <input className="inputNomeTeste" type="text" id="nometeste" required/>
                         </div>
-                        <input class="btnForms" type="submit" value="Enviar" onclick="setTeste()"/>
+                        <input className="btnForms" type="submit" value="Enviar" onclick="setTeste()"/>
                     </form> 
                 </>
             )
         }
     }
 
-    render () {
         return (
             <>
-                <this.menu.cadastrar/>
-                <this.menu.exibir/>
-                <this.menu.responder/>
+                <menu.cadastrar/>
+                <menu.exibir/>
+                <menu.responder/>
             </>
         )
     }
-}
 
-export default pergunta
+export default Pergunta

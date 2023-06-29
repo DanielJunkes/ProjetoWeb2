@@ -6,14 +6,10 @@ import {Link} from 'react-router-dom';
 import imgEmail from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
 
-class cadastro extends React.Component{
-    constructor(props) {
-        this.state= {
-            "opcao": String,
-            }
-        }
+const Cadastro = () =>{
+
     
-    cadastroUsuario = () => {
+    const cadastroUsuario = () => {
         const nome = document.getElementById("emailInputCadastro").value;
         const senha = document.getElementById("senhaInputCadastro").value;
     
@@ -40,25 +36,23 @@ class cadastro extends React.Component{
         }
         }
 
-    render() {
         return(
             <>
-                <form class="form"> 
-                    <h2 class="tituloForm">Cadastro</h2>
-                    <div class="containerEmail">
-                        <img class="emailPng" src={imgEmail} alt="Email"/>
+                <form className="form"> 
+                    <h2 className="tituloForm">Cadastro</h2>
+                    <div className="containerEmail">
+                        <img className="emailPng" src={imgEmail} alt="Email"/>
                         <label for="emailInputCadastro">Nome</label>
                     </div>
                     <input type="text" id="emailInputCadastro" required/>
-                    <div class="containerSenha">
-                        <img class="senhaPng" src={imgSenha} alt="Senha"/>
+                    <div className="containerSenha">
+                        <img className="senhaPng" src={imgSenha} alt="Senha"/>
                         <label for="senhaInputCadastro">Senha</label>
                     </div>
                     <input type="password" id="senhaInputCadastro" required/>
-                    <button class="btnForms" onClick={this.cadastroUsuario}>Cadastrar</button>
+                    <button className="btnForms" onClick={cadastroUsuario}>Cadastrar</button>
                 </form>
             </>
             )
     }
-}
-export default cadastro
+export default Cadastro

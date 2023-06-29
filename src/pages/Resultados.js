@@ -2,7 +2,7 @@ import React from "react";
 import ResultadosTestes from '../components/resultadoTeste/index';
 
 
-function Resultados() {
+const Resultados = () => {
     return (
         <>
             <ResultadosTestes />

@@ -1,11 +1,13 @@
 import React from "react";
 import "./style.css"
 
-const numTest="";
+import { useEffect } from "react";
 
-class login extends React.Component{
+
+const Login = () =>{
     
-    getTeste = async () => {
+    const getTeste = async () => {
+        const numTest="";
         try {
             const response = await fetch('http://localhost:8080/testes')
             const data = await response.json();
@@ -13,64 +15,32 @@ class login extends React.Component{
             for(let teste of data) {
     
                 numTest++;
-                console.log(teste);
-    
-                //cria o html com o nome dos testes
-                var art = document.createElement("article")
-                art.setAttribute("id", "teste"+numTest)
-    
-                var htmlTeste = document.createElement("h1")
-                var txtTeste = document.createTextNode(teste.title)
-    
-                var botao = document.createElement("input")
-                botao.type = "button"
-                botao.setAttribute("value", "Responder Teste")
-                botao.setAttribute("onClick", "window.location='http://localhost:8080/teste'")
-    
-                htmlTeste.appendChild(txtTeste)
-    
-                art.appendChild(htmlTeste)
-                art.appendChild(botao)
                 return(
-                    {art}
+                    <>
+                        <article id={'teste'+numTest}>
+                            <h1>{teste[numTest].title}</h1>
+                            <button type="button" value="Responder Teste" onClick="window.location='http://localhost:8080/teste'"></button>
+                        </article>
+                    </>
                     
                 )
             }
         } catch(erro) {
             console.log(erro);
         }
-    }
-    
-    render() {
-        // let html = ""
-        // var lista = this.props.Perguntas_
-
-        // console.log(lista);
-
-        // html = lista.map((item) => { 
-        //     return (
-        //         <>
-        //             <article id={item.id}>
-        //                 <h1>{item.title}</h1>
-        //             </article>
-        //         </>
-
-        //     )
-        // })
-
-
-         
-
+        }
+       useEffect(()=>{
+        getTeste()
+        }, []) 
         return(
             <>
-                <div class="conteudo">
-                    <div class="containerConteudo">
-                        <h2 class="tituloConteudo">Lista de Testes</h2>
-                        <div class="containerTestes">
+                <div className="conteudo">
+                    <div className="containerConteudo">
+                        <h2 className="tituloConteudo">Lista de Testes</h2>
+                        <div className="containerTestes">
                             <section id="sec">
-                               {this.getTeste}
                             </section>
-                            <button class="btnVoltar" type="button" onClick="window.location = 'http://localhost:8080'">Voltar</button>
+                            <button className="btnVoltar" type="button" onClick="window.location = 'http://localhost:3000'">Voltar</button>
                         </div>
                     </div>
                 </div>
@@ -78,6 +48,5 @@ class login extends React.Component{
         )
     }
 
-}
 
-export default login
+export default Login

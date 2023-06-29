@@ -3,17 +3,15 @@ import "./style.css"
 
 import logo from "../../img/logo.png"
 
-class header extends React.Component {
-   render() {
+const Header = () => {
     return (
         <>
-            <header class="header">
-                <img class="logo" src={logo} alt="Cérebro"/>
-                <h1 class="titulo">Teste de Memória</h1>
+            <header className="header">
+                <img className="logo" src={logo} alt="Cérebro"/>
+                <h1 className="titulo">Teste de Memória</h1>
             </header>
         </>
     )
    }
-}
 
-export default header
+export default Header

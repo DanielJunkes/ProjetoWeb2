@@ -6,14 +6,10 @@ import {Link} from 'react-router-dom';
 import imgLogin from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
 
-class login extends React.Component{
-    constructor (props){
-        this.state = {
-            "opcao": String
-        }
-    }
+const Login = () => {
 
-    verificarUsuario = async () =>{
+
+    const  verificarUsuario = async () =>{
     try{
         const nome = document.getElementById("emailInputLogin").value;
         const senha = document.getElementById("senhaInputLogin").value;
@@ -51,27 +47,25 @@ class login extends React.Component{
         
     }
 
-
-    render() {
         return(
             <>
-                <form class="form">
-                <h2 class="tituloForm">Login</h2>
-                <div class="containerEmail">
-                    <img class="emailPng" src={imgLogin} alt="Email"/>
+                <form className="form">
+                <h2 className="tituloForm">Login</h2>
+                <div className="containerEmail">
+                    <img className="emailPng" src={imgLogin} alt="Email"/>
                     <label for="emailInputLogin">Nome</label>
                 </div>
                 <input type="txt" id="emailInputLogin" required/>
-                <div class="containerSenha"> 
-                    <img class="senhaPng" src={imgSenha} alt="Senha"/>
+                <div className="containerSenha"> 
+                    <img className="senhaPng" src={imgSenha} alt="Senha"/>
                     <label for="senhaInputLogin">Senha</label>
                 </div>
-                <button class="btnForms" type="button" onClick={this.verificarUsuario}>Login</button>
+                <input type="password" id="senhaInputLogin" required/>
+                <button className="btnForms" type="button" onClick={verificarUsuario}>Login</button>
                 </form>
             </>
         )
     }
 
-}
 
-export default login
+export default Login

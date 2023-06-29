@@ -4,12 +4,12 @@ import Cadastro from '../components/cadastro';
 import Login from '../components/login';
 
 
-function HomePage() {
+const HomePage = () => {
   
     return (
         <> 
-            <div class="containerConteudo">
-                <div class="containerForms">
+            <div className="containerConteudo">
+                <div className="containerForms">
                     <Cadastro/>
                     <Login/>
                 </div>

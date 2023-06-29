@@ -3,7 +3,7 @@ import React from "react";
 
 import CadastroPerguntas from "../components/perguntas/index"
 
-function CadastrarPerguntas(){
+const CadastrarPerguntas = () =>{
     return(
         <>
             <CadastroPerguntas/>

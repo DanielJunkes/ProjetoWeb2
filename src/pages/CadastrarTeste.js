@@ -3,7 +3,7 @@ import React from "react";
 
 import CadastrarTestes from "../components/cadastrarTeste/index"
 
-function CadastrarTeste(){
+const CadastrarTeste = () =>{
     return(
         <>
             <CadastrarTestes/>

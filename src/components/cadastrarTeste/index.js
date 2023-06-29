@@ -2,31 +2,52 @@ import React from "react";
 import "./style.css"
 
 import imgLapis from "../../img/pencil.png"
+import { useState } from "react";
 
-class cadastrarTeste extends React.Component{
-    render() {
+const CadastrarTeste = () =>{
+
+    const [nomeDoTeste, setNomeDoTeste] = useState("");
+
+    const handleInputChange = ({value}) => {
+        console.log(value)
+        setNomeDoTeste(value)
+    }
+
+    const addTeste = async () =>{
+        try{
+            console.log(nomeDoTeste)
+                await fetch('http://localhost:8080/testes/create', {
+                    method: "POST",
+                    headers: {'Content-type': 'application/json'},
+                    body: {
+                        teste: nomeDoTeste,
+                        perguntas: "",
+                    }
+                })
+        }catch(e){
+            console.log(e)
+        }
+    }
+
         return(
             <>
-                <div class="containerConteudo">
-                    <div class="containerForms">
-                        <h2 class="tituloForm">Criar Teste</h2>
-                        <form action="http://localhost:8081/add" method="POST">
-                            <div class="containerNome">
-                                <img class="lapisPng" src={imgLapis} alt="Lápis"/>
+                <div className="containerConteudo">
+                    <div className="containerForms">
+                        <h2 className="tituloForm">Criar Teste</h2>
+                            <div className="containerNome">
+                                <img className="lapisPng" src={imgLapis} alt="Lápis"/>
                                 <label for="nometeste">Nome do Teste:</label>
-                                <input class="inputNomeTeste" type="text" id="nometeste" required/>
+                                <input className="inputNomeTeste" type="text" id="nometeste" onChange={(e) => handleInputChange(e.target.value)} value={nomeDoTeste} required/>
                             </div>
-                            <input class="btnForms" type="submit" value="Enviar" onclick="setTeste()"/>
-                        </form> 
+                            <button className="btnForms"  value="Enviar" onClick={addTeste}/>
                         </div>
-                        <h2 class="testeCriado">Testes Criados</h2>
+                        <h2 className="testeCriado">Testes Criados</h2>
                         <section id="sec"></section>
-                        <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/'">Voltar</button>
+                        <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/'">Voltar</button>
                     </div>
             </>
         )
     }
 
-}
 
-export default cadastrarTeste
+export default CadastrarTeste

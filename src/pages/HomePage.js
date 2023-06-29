@@ -1,8 +1,7 @@
 import React from "react";
 import Home from '../components/home';
 
-
-function HomePage() {
+const HomePage = () =>{
     return (
         <>
             <Home />
