@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css"
 
 import imgLapis from "../../img/pencil.png"
@@ -15,7 +15,6 @@ const CadastrarTeste = () =>{
                 perguntas: perguntasD
             }
             const testeK = JSON.stringify(teste)
-            console.log(testeK)
                 await fetch('http://localhost:8080/testes/create', {
                     method: "POST",
                     headers: {'Content-type': 'application/json'},
@@ -26,7 +25,6 @@ const CadastrarTeste = () =>{
                     return response.json()
                 })
                 .then(data => {
-                    console.log(data)
                 })
             }else{
                 alert("Nome em Branco")
@@ -36,6 +34,8 @@ const CadastrarTeste = () =>{
             console.log(e)
         }
     }
+
+    const [testes, setTestes] = useState("")
 
     const listarTestes = async() =>{
         try{
@@ -48,7 +48,8 @@ const CadastrarTeste = () =>{
             return response.json()
         })
         .then(data => {
-            console.log(data)
+            setTestes(JSON.stringify(data))
+
         })
         }
        catch(e){
@@ -58,6 +59,7 @@ const CadastrarTeste = () =>{
         useEffect(()=>{
             listarTestes()
         }, [])
+        console.log(testes)
         return(
             <>
                 <div className="containerConteudo">
@@ -68,10 +70,16 @@ const CadastrarTeste = () =>{
                                 <label for="nometeste">Nome do Teste:</label>
                                 <input className="inputNomeTeste" type="text" id="nometeste" required/>
                             </div>
-                            <button className="btnForms"  value="Enviar" onClick={addTeste}/>
+                            <button className="btnForms" value="Enviar" onClick={addTeste}>Adicionar</button>
                         </div>
                         <h2 className="testeCriado">Testes Criados</h2>
-                        <section id="sec"></section>
+                        <section id="sec">
+                            {testes.map((testes, index)=>(
+                                <div key={index}>
+                                    <h1>{testes.titulo}</h1>
+                                </div>
+                            ))}
+                        </section>
                         <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/'">Voltar</button>
                     </div>
             </>
