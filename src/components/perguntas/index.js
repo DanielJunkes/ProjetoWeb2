@@ -1,9 +1,17 @@
 import React from "react";
 import "./style.css"
 
+import  InputPergunta  from "./inputPergunta/index.js"
 import imgLapis from "../../img/pencil.png"
 
 const Pergunta = () =>{
+
+    const addPergunta = () => {
+        const sec = document.getElementById("sec")
+        sec.appendChild(<InputPergunta />)
+    }
+    
+
     const menu = {
         responder: () => {
             return(
@@ -41,14 +49,29 @@ const Pergunta = () =>{
         cadastrar: () => {
             return(
                 <>
-                    <form action="http://localhost:8081/add" method="POST">
-                        <div className="containerNome">
-                            <img className="lapisPng" src={imgLapis} alt="Lápis"/>
-                            <label for="nometeste">Nome do Teste:</label>
-                            <input className="inputNomeTeste" type="text" id="nometeste" required/>
+                    
+                    <div class="containerConteudo">
+                        <div class="containerTopo">
+                            <form action="http://localhost:8081/add" method="POST">
+                                <div className="containerNome">
+                                    <img className="lapisPng" src={imgLapis} alt="Lápis"/>
+                                    <label for="nometeste">Nome do Teste:</label>
+                                    <input className="inputNomeTeste" type="text" id="nometeste" required/>
+                                    
+                                </div>
+                                
+                                <input className="btnForms" type="submit" value="Enviar" onclick="setTeste()"/>
+                            </form> 
                         </div>
-                        <input className="btnForms" type="submit" value="Enviar" onclick="setTeste()"/>
-                    </form> 
+                        <section id="sec">
+                            <InputPergunta />
+                        </section>
+                        <input class="btn" type="button" value="Add Pergunta" onClick={addPergunta} />
+                        <div class="containerBtn">
+                            <input id="salvar" class="btn" type="button" value="Salvar Alteração" onclick="salvarPergunta()" />
+                        </div>
+                        <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
+                    </div>
                 </>
             )
         }
@@ -57,8 +80,6 @@ const Pergunta = () =>{
         return (
             <>
                 <menu.cadastrar/>
-                <menu.exibir/>
-                <menu.responder/>
             </>
         )
     }
