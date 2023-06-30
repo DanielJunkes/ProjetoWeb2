@@ -35,11 +35,10 @@ const CadastrarTeste = () =>{
         }
     }
 
-    const [testes, setTestes] = useState("")
+    const [testes, setTestes] = useState([])
 
-    const listarTestes = async() =>{
+    const getTestes = async() =>{
         try{
-            console.log("aaaa")
              await fetch('http://localhost:8080/testes/', {
             method: "GET",
             headers: {'Content-type': 'application/json'},
@@ -48,7 +47,7 @@ const CadastrarTeste = () =>{
             return response.json()
         })
         .then(data => {
-            setTestes(JSON.stringify(data))
+            setTestes(data)
 
         })
         }
@@ -57,9 +56,8 @@ const CadastrarTeste = () =>{
         }
         }
         useEffect(()=>{
-            listarTestes()
+            getTestes()
         }, [])
-        console.log(testes)
         return(
             <>
                 <div className="containerConteudo">
@@ -74,9 +72,10 @@ const CadastrarTeste = () =>{
                         </div>
                         <h2 className="testeCriado">Testes Criados</h2>
                         <section id="sec">
-                            {testes.map((testes, index)=>(
+                            {testes.map((teste, index)=>(
                                 <div key={index}>
-                                    <h1>{testes.titulo}</h1>
+                                    <h1>{teste.titulo}</h1>
+                                    <button>Editar</button>
                                 </div>
                             ))}
                         </section>
