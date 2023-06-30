@@ -1,10 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
+import {Contexto} from '../../routerProvider'
 import "./style.css"
 
 import  InputPergunta  from "./inputPergunta/index.js"
 import imgLapis from "../../img/pencil.png"
 
 const Pergunta = () =>{
+
+    const {teste} = useContext(Contexto)
+
+    console.log(teste)
 
     const addPergunta = () => {
         const sec = document.getElementById("sec")

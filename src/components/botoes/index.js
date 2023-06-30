@@ -6,7 +6,7 @@ const Botoes = () =>{
         voltar: () => {
             return (
                 <>
-                    <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Voltar</button>
+                    <button className="btnVoltar" type="button" onClick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Voltar</button>
                 </>
             )
         },
@@ -14,7 +14,7 @@ const Botoes = () =>{
         cancelar: () => {
             return (
                 <>
-                    <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
+                    <button className="btnVoltar" type="button" onClick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
                 </>
             )
         },
@@ -22,7 +22,7 @@ const Botoes = () =>{
         proximo: () => {
             return (
                 <>
-                    <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Proximo</button>
+                    <button className="btnVoltar" type="button" onClick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Proximo</button>
                 </>
             )
         },

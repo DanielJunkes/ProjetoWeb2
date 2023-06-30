@@ -1,9 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import {Contexto} from '../../routerProvider'
 import "./style.css"
+
+import {Link} from 'react-router-dom';
 
 import imgLapis from "../../img/pencil.png"
 
 const CadastrarTeste = () =>{
+
+    const {setTeste} = useContext(Contexto)
+
+    const handleSetTeste = (valor) =>{
+        setTeste(valor)
+    }
 
     const addTeste = async () =>{
         try{
@@ -48,7 +57,6 @@ const CadastrarTeste = () =>{
         })
         .then(data => {
             setTestes(data)
-
         })
         }
        catch(e){
@@ -58,6 +66,7 @@ const CadastrarTeste = () =>{
         useEffect(()=>{
             getTestes()
         }, [])
+        
         return(
             <>
                 <div className="containerConteudo">
@@ -75,7 +84,9 @@ const CadastrarTeste = () =>{
                             {testes.map((teste, index)=>(
                                 <div key={index}>
                                     <h1>{teste.titulo}</h1>
-                                    <button>Editar</button>
+                                    <Link to="/addpergunta">
+                                       <button value={teste._id} onClick={(e) => e.target.value}>Editar</button> 
+                                    </Link>
                                 </div>
                             ))}
                         </section>

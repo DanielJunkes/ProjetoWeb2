@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import {Provider} from "../../routerProvider"
 import {Contexto} from "../../routerProvider"
 import "./style.css"
 

@@ -1,14 +1,14 @@
 import Router from "./Router"
 import { BrowserRouter } from 'react-router-dom';
-import {ProviderRotas} from "./routerProvider"
+import {ProviderValores} from "./routerProvider"
 
 function App() {
   return (
       <div className="App">
         <BrowserRouter>
-        <ProviderRotas>
+        <ProviderValores>
            <Router />
-        </ProviderRotas>
+        </ProviderValores>
         </BrowserRouter>
       </div>
   );

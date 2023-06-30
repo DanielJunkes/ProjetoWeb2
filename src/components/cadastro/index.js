@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./style.css"
-
-import {Link} from 'react-router-dom';
 
 import imgEmail from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
 
-const Cadastro = (rota) =>{
+import {Contexto} from "../../routerProvider"
 
+const Cadastro = () =>{
+
+    const {rota} = useContext(Contexto)
     
     const cadastroUsuario = () => {
         const nome = document.getElementById("emailInputCadastro").value;
@@ -26,7 +27,7 @@ const Cadastro = (rota) =>{
                 return response.json();
             })
             .then(data => {
-                <Link to="testes"/>
+                window.location=('http://localhost:3000'+rota)
             })
             .catch(error => {
                 console.log('Erro com a operação fetch', error);

@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./style.css"
 
 import {Contexto} from "../../routerProvider"
-import {Link} from 'react-router-dom';
 
 import imgLogin from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
