@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+import {Provider} from "../../routerProvider"
+import {Contexto} from "../../routerProvider"
 import "./style.css"
 
 import {Link} from 'react-router-dom';
@@ -12,11 +14,17 @@ import imgResponderTesteBranco from "../../img/responderTesteBranco.png";
 
 const Home = () =>{
 
+    const {setRota} = useContext(Contexto)
+
+    const handleSetRota = (valor) =>{
+        setRota(valor)
+    }
+
     const menu= {
             cadastrar: () => {
                 return (
                     <Link to="/cadastrar">
-                        <button> 
+                        <button onClick={() => handleSetRota("/addteste")}> 
                             <div className="containerBtn">
                             <p className="textoMargin">Cadastrar teste </p> 
                             <img className="imgBtn" src={imgAddTeste} alt="Adicionar teste"/>
@@ -29,7 +37,7 @@ const Home = () =>{
             responder: () => {
                 return (
                     <Link to="/cadastrar">
-                         <button>
+                         <button onClick={() => handleSetRota("/testes")}>
                             <div className="containerBtn">
                                 <p className="textoMargin">Responder teste</p>
                                 <img className="imgBtn" src={imgResponderTeste} alt="Adicionar teste"/>
@@ -42,7 +50,7 @@ const Home = () =>{
             listarResultados: () => {
                 return (
                     <Link to="/cadastrar">
-                            <button>
+                            <button onClick={() => handleSetRota("/resultados")}>
                                 <div className="containerBtn">
                                     <p className="textoMargin">Lista de resultados</p> 
                                     <img className="imgBtn" src={imgListaTeste} alt="Adicionar teste"/>

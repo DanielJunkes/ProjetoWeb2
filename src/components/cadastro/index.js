@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 import imgEmail from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
 
-const Cadastro = () =>{
+const Cadastro = (rota) =>{
 
     
     const cadastroUsuario = () => {
@@ -21,7 +21,7 @@ const Cadastro = () =>{
             })
             .then(response => {
                 if(!response.ok){
-                    throw new Error('Response error');
+                    alert("Usuario ja Existe")
                 }
                 return response.json();
             })

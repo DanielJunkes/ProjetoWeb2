@@ -20,10 +20,21 @@ router.get('/login/:nome', async (req, res) => {
     }
  })
 
-router.post('/create', (req, res) => {
-     const dados = req.body
-     usuariosBD(dados).save()
-     res.send(req.body)
+router.post('/create', async (req, res) => {
+    const dados = {
+        nome: req.body.nome
+    }
+    const usuario = await usuariosBD.findOne(dados)
+    if(!usuario){
+        const novoUsuario = req.body
+        usuariosBD(dados).save()
+        res.send(req.body)
+    }else{
+        return res.status(500).json({
+            message: "Usuario ja existe",
+            type: "error",
+        });
+    }   
  });
 
 router.put('/update', async (req, res) => {

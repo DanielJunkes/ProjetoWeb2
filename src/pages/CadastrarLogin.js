@@ -4,7 +4,7 @@ import Cadastro from '../components/cadastro';
 import Login from '../components/login';
 
 
-const HomePage = () => {
+const CadastroLogin = () => {
   
     return (
         <> 
@@ -18,4 +18,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default CadastroLogin
