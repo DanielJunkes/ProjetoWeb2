@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import "./style.css"
+import "./styleListaTestes.css"
 
 import { useEffect } from "react";
 
@@ -38,9 +38,9 @@ const Login = () =>{
                         <div className="containerTestes">
                             <section id="sec">
                             {testes.map((teste, index)=>(
-                                <div key={index}>
+                                <div className="conteudoSec" key={index}>
                                     <h1>{teste.titulo}</h1>
-                                    <button>Responder</button>
+                                    <button className="btnForms">Responder</button>
                                 </div>
                             ))}
                             </section>

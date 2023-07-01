@@ -1,5 +1,5 @@
 import React from "react";
-import "./style.css"
+import "./styleResponder.css"
 
 const ResponderTeste = () => {
     return (
@@ -21,7 +21,7 @@ const ResponderTeste = () => {
                     <label for="opcaoD">d)</label>
                     <input type="radio" id="opcaoE" name="opcao" value=""/>
                     <label for="opcaoE">e)</label>
-                </form>
+                </form>      
                 <div className="containerBotoes" id="botao">
                     <input id="prox" className="btn" type="button" value="Próxima Pergunta" onclick="getReposta()"/>
                     <input id="cancelar" className="btn" type="button" value="Parar Teste" onclick="testFinalizado()"/>

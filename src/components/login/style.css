@@ -134,6 +134,7 @@ label{
 }
 
 .btnForms{
+    height: 60px;
     margin-top: 15px;
     padding: 10px;
     font-size: 18px;

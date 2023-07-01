@@ -1,8 +1,11 @@
 /* padrão todas as telas */
+
 body{
     background-color: rgb(235,235,235);
     display: flex;
     justify-content: center;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .conteudo{
@@ -65,77 +68,36 @@ body{
 
 /* código específico */
 
-.containerForms, .form, input, .btnForms{
+#nome{
+    padding-left: 10px;
+    color: #e8a34b;
+    margin: 0px 0px 25px;
+    font-size: 35px;
+    letter-spacing: 1.5px;
+    padding-top: 25px;
+}
+
+#sec{
+    margin: auto;
+    margin-bottom: 50px;
+    width: fit-content;
+    padding: 50px;
+    letter-spacing: 2.5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
     border-radius: 30px;
 }
 
-.containerForms, .form, label, .containerEmail, .containerSenha{
-    display: flex;
+#pergunta{
+    margin: 0px;
+    font-size: 30px;
+    padding-bottom: 35px;
 }
 
-.form, .btnForms{
-    font-family: 'Roboto', sans-serif;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+.containerBotoes{
+    margin-top: 35px;
 }
 
-.containerForms{
-    background-color: white;
-    justify-content: space-around;
-}
-
-.form, input, .btnForms{
-    border-style: none;
-}
-
-.form{
-    background-color: white;
-    margin: 40px 20px 40px 20px;
-    flex-direction: column;
-    padding: 50px;
-    font-size: 25px;
-    font-weight: 800;
-    letter-spacing: 2.5px;
-}
-
-input{
-    width: 300px;
-    margin: 0px 10px 10px 10px;
-    padding: 10px;
-    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-h2{
-    margin: 0px 10px 20px 10px;
-    color: #e8a34b;
-    font-size: 35px;
-}
-
-label{
-    margin: 10px;
-    font-size: 20px;
-    font-weight: 500;
-    pointer-events: none;
-}
-
-.containerEmail, .containerSenha{
-    align-items: flex-end;
-}
-
-.emailPng, .senhaPng{
-    margin: 10px 0 10px 22px;
-} 
-
-.emailPng, .senhaPng{
-    height: 20px;
-}
-
-.senhaPng{
-    height: 25px;
-}
-
-.btnForms{
-    height: 60px;
-    margin-top: 15px;
+.btn{
     padding: 10px;
     font-size: 18px;
     font-weight: 600;
@@ -143,16 +105,33 @@ label{
     transition: all 0.3s ease 0s;
     cursor: pointer;
     outline: none;
-    background-color: #fff5ec;
+    border-style: none;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    width: 240px;
 }
 
-.btnForms:hover {
+.btn:hover{
     background-color: #e8a34b;
     color: #fff;
     box-shadow: 0px 15px 20px #c68c41;
     transform: translateY(-7px);
 }
 
-input:hover{
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+.instrucao{
+    font-size: 25px;
+    margin-top: 0px;
+}
+
+form{
+    font-size: 20px;
+}
+
+
+input[type=radio][id^=opcao] {
+    accent-color: #e8a34b;
+}
+
+#botaoTest{
+    width: 260px;
 }

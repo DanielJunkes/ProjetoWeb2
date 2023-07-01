@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./style.css"
+import "./styleCadastroTeste.css"
 
 import imgLapis from "../../img/pencil.png"
+
+import {Link} from 'react-router-dom';
 
 const CadastrarTeste = () =>{
 
@@ -61,26 +63,27 @@ const CadastrarTeste = () =>{
         return(
             <>
                 <div className="containerConteudo">
-                    <div className="containerForms">
-                        <h2 className="tituloForm">Criar Teste</h2>
+                    <div className="containerFormsCadastro">
+                        <h2 className="tituloForm">Criar Teste  <img className="lapisPng" src={imgLapis} alt="Lápis"/></h2>
                             <div className="containerNome">
-                                <img className="lapisPng" src={imgLapis} alt="Lápis"/>
-                                <label for="nometeste">Nome do Teste:</label>
-                                <input className="inputNomeTeste" type="text" id="nometeste" required/>
+                                <label for="nometeste" className="tituloNome">Nome do Teste:</label>
+                                <input className="inputNomeTeste" type="text" required/>
                             </div>
                             <button className="btnForms" value="Enviar" onClick={addTeste}>Adicionar</button>
                         </div>
                         <h2 className="testeCriado">Testes Criados</h2>
+                        <div className="containerTestes">
                         <section id="sec">
                             {testes.map((teste, index)=>(
-                                <div key={index}>
+                                <div className="conteudoSec" key={index}>
                                     <h1>{teste.titulo}</h1>
-                                    <button>Editar</button>
+                                    <button className="btnForms">Editar</button>
                                 </div>
                             ))}
                         </section>
                         <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/'">Voltar</button>
                     </div>
+                </div>
             </>
         )
     }
