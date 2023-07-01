@@ -1,12 +1,15 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext, useEffect} from "react";
 import "./style.css"
 
-import { useEffect } from "react";
-
+import {Contexto} from "../../routerProvider"
+import { Link } from "react-router-dom";
 
 const Login = () =>{
-    
+    const {setTeste} = useContext(Contexto)
+    const handleSetTeste = (valor) =>{
+        setTeste(valor)
+    }
     const [testes, setTestes] = useState([])
 
     const getTestes = async() =>{
@@ -40,11 +43,13 @@ const Login = () =>{
                             {testes.map((teste, index)=>(
                                 <div key={index}>
                                     <h1>{teste.titulo}</h1>
-                                    <button>Responder</button>
+                                    <Link to="/responder">
+                                        <button onClick={() => handleSetTeste(teste._id)}>Responder</button>
+                                    </Link>
                                 </div>
                             ))}
                             </section>
-                            <button className="btnVoltar" type="button" onClick="window.location = 'http://localhost:3000'">Voltar</button>
+                            <button className="btnVoltar" type="button" >Voltar</button>
                         </div>
                     </div>
                 </div>

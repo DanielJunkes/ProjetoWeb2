@@ -5,15 +5,15 @@ const PerguntaReponder = ({teste, index}) => {
                 <input type="text" id="pergunta" value={`Pergunta: ${teste.titulo}`} disabled/>
                 <p className="instrucao">Selecione a resposta correta: </p>
                 
-                <input className={`opcaoA${index}`} type="radio" id={`opcaoA${index}`} name={`opcao${index}`} value={teste.opcaoA}/>
+                <input className={`opcaoA${index}`} type="radio" id={`opcaoA${index}`} name={`opcao${index}`} value="A"/>
                 <label for={`opcaoA${index}`}>a) {teste.opcaoA}</label>
-                <input type="radio" id={`opcaoB${index}`} name={`opcao${index}`} value={teste.opcaoB} />
+                <input type="radio" id={`opcaoB${index}`} name={`opcao${index}`} value="B" />
                 <label for={`opcaoB${index}`}>b) {teste.opcaoB}</label>
-                <input type="radio" id={`opcaoC${index}`} name={`opcao${index}`} value={teste.opcaoC} />
+                <input type="radio" id={`opcaoC${index}`} name={`opcao${index}`} value="C" />
                 <label for={`opcaoC${index}`}>c) {teste.opcaoC}</label>
-                <input type="radio" id={`opcaoD${index}`} name={`opcao${index}`} value={teste.opcaoD} />
+                <input type="radio" id={`opcaoD${index}`} name={`opcao${index}`} value="D" />
                 <label for={`opcaoD${index}`}>d) {teste.opcaoD}</label>
-                <input type="radio" id={`opcaoE${index}`} name={`opcao${index}`} value={teste.opcaoD} />
+                <input type="radio" id={`opcaoE${index}`} name={`opcao${index}`} value="E" />
                 <label for={`opcaoE${index}`}>e) {teste.opcaoD}</label>
         </>
     )

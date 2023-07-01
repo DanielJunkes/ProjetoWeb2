@@ -1,0 +1,16 @@
+const express = require('express');
+const testeBD = require("../mongoDB/dao/resultados.js");
+
+
+const router = express.Router();
+
+
+router.post('/create', (req, res) => {
+     const dados = req.body
+     testeBD(dados).save()
+     res.send(req.body)
+ });
+
+
+
+module.exports = router;
