@@ -9,6 +9,15 @@ router.get('/', async (req, res) => {
     res.json(per)
  })
 
+router.get('/:id', async (req, res) => {
+    const id = {
+        _id: req.params.id
+    }
+    const per = await testeBD.find(id);
+    res.send(per)
+ })
+
+
 router.post('/create', (req, res) => {
      const dados = req.body
      testeBD(dados).save()
