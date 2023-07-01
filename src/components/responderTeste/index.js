@@ -36,7 +36,7 @@ const ResponderTeste = () => {
             <section id="sec">
                 <form action="" id="formu">
                     {teste.perguntas.forEach(pergunta => {
-                        map
+                        
                     })}
                     {/* //     // console.log(teste.perguntas)
                     //     // teste.perguntas.map((teste, index) => { */}

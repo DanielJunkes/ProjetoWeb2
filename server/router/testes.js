@@ -29,12 +29,8 @@ router.post('/create', (req, res) => {
 router.put('/update', async (req, res) => {
     const dados = {
         id: req.body.id,
-        // titulo: req.body.titulo,
         perguntas: req.body.perguntas
     };
-    // const pergunta = {
-    //     da
-    // }
 
     await testeBD.findByIdAndUpdate(dados.id, {perguntas: dados.perguntas});
     res.send(dados);

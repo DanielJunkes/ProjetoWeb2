@@ -9,7 +9,6 @@ import imgLapis from "../../img/pencil.png"
 const EditarTeste = () =>{
 
     const {teste} = useContext(Contexto)
-    const {pergunta} = useContext(Contexto)
 
     const [perguntas, setPerguntas] = useState([])
 
@@ -30,9 +29,13 @@ const EditarTeste = () =>{
             console.log(e)
         }
         try {
-            await fetch('http://localhost:8080/testes/'+teste, {
+            await fetch('http://localhost:8080/testes/update', {
             method: "PUT",
             headers: {'Content-type': 'application/json'},
+            body: {
+                id: teste,
+                perguntas: perguntas
+            }
             })
         .then(response => {
             return response.json()
