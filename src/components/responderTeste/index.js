@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext} from "react";
-import "./styleResponder.css"
+import "./style.css"
 
 import {Contexto} from "../../routerProvider"
 
@@ -61,20 +61,21 @@ const ResponderTeste = () => {
 
         }
 
-        // try{
-        //     fetch('http://localhost:8080/resultados/crate", {
-        //         method: "GET",
-        //         headers: {'Content-type': 'application/json'},
-        //     })
-        //     .then(response => {
-        //         return response.json()
-        //     })
-        //     .then(data => {
-        //         setTesteg(data)
-        //     })
-        // } catch(e){
-        //     console.log(e)
-        // }
+        try{
+            fetch('http://localhost:8080/result/create', {
+                method: "GET",
+                headers: {'Content-type': 'application/json'},
+                body: result
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                setTesteg(data)
+            })
+        } catch(e){
+            console.log(e)
+        }
         
 
         console.log(result);
