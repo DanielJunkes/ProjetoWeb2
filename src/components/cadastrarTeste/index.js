@@ -85,7 +85,7 @@ const CadastrarTeste = () =>{
                                 <div className="conteudoSec" key={index}>
                                     <h1>{teste.titulo}</h1>
                                     <Link to="/editarteste">
-                                       <button onClick={() => handleSetTeste(teste._id)}>Editar</button> 
+                                       <button className="btnForms" onClick={() => handleSetTeste(teste._id)}>Editar</button> 
                                     </Link>
                                 </div>
                             ))}
