@@ -13,7 +13,7 @@ router.get('/:id', async (req, res) => {
     const id = {
         _id: req.params.id
     }
-    const per = await testeBD.find(id);
+    const per = await testeBD.findById(id);
     res.send(per)
  })
 

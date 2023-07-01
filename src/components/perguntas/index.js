@@ -1,10 +1,9 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState, useEffect} from "react";
 import {Contexto} from '../../routerProvider'
 import "./style.css"
 
 import {Link} from 'react-router-dom';
 
-import  InputPergunta  from "./inputPergunta/index.js"
 import imgLapis from "../../img/pencil.png"
 
 const EditarTeste = () =>{
@@ -24,15 +23,31 @@ const EditarTeste = () =>{
             return response.json()
         })
         .then(data => {
-            console.log(data)
-            setPerguntas(data)
+            setPerguntas(data.perguntas)
+        })
+        }
+       catch(e){
+            console.log(e)
+        }
+        try {
+            await fetch('http://localhost:8080/testes/'+teste, {
+            method: "PUT",
+            headers: {'Content-type': 'application/json'},
+            })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            setPerguntas(data.perguntas)
         })
         }
        catch(e){
             console.log(e)
         }
     }
-
+    useEffect(()=>{
+        getPergunta()
+    }, [])
     return(
         <>
             <div class="containerConteudo">
@@ -43,11 +58,29 @@ const EditarTeste = () =>{
                             <label for="nometeste">Nome do Teste:</label>
                             <input className="inputNomeTeste" type="text" id="nometeste" required/>
                         </div>
-                        <input className="btnForms" type="submit" value="Enviar" onclick="setTeste()"/>
                     </form> 
                 </div>
                 <section id="sec">
-                    <InputPergunta />
+                {perguntas.map((pergunta, index)=>(
+                                <div key={index}>
+                                    <art id="art">
+                                    <h2 id="nome">Titulo</h2>
+                                    <input id="nomeI" type="text" value={pergunta.titulo} disabled/>    
+                                    <label for="op">Opção A: </label> 
+                                    <input type="text" id="op1" className="op" value={pergunta.opcaoA} disabled/>
+                                    <label for="op">Opção B: </label> 
+                                    <input type="text" id="op2" className="op" value={pergunta.opcaoB} disabled/>
+                                    <label for="op">Opção C: </label> 
+                                    <input type="text" id="op3" className="op" value={pergunta.opcaoC} disabled/>
+                                    <label for="op"> D: </label> 
+                                    <input type="text" id="op4" className="op" value={pergunta.opcaoD} disabled/>
+                                    <label for="op">Opção E: </label>     
+                                    <input type="text" id="op5" className="op" value={pergunta.opcaoE} disabled />
+                                    <div className="alternativacorreta"/>
+                                    <label for="alternativacorreta: ">Alternativa correta: {pergunta.resposta}</label>
+                                    </art> 
+                                </div>
+                            ))}
                 </section>
                 <Link to="/addpergunta">
                     <input class="btn" type="button" value="Add Pergunta"/>
