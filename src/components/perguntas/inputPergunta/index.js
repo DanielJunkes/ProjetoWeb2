@@ -1,17 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect, useSyncExternalStore} from "react";
 import {Contexto} from "../../../routerProvider"
 
 import {Link} from 'react-router-dom';
 
 const InputPergunta = () => {
 
-    const {setPergunta} = useContext(Contexto)
+    const {teste} = useContext(Contexto)
 
-    const handleSetPergunta = (valor) =>{
-        setPergunta(valor)
-    }
+    const [perguntas, setPerguntas] = useState([])
 
-    const addPergunta = () =>{
+    const addPergunta = async () =>{
         const nome = document.getElementById("nomeI").value
         const opcaoA = document.getElementById("op1").value
         const opcaoB = document.getElementById("op2").value
@@ -30,8 +28,25 @@ const InputPergunta = () => {
             opcaoCorreta: opcaoCerta
         }
 
-        handleSetPergunta(novaPergunta)
-        
+        try {
+            await fetch('http://localhost:8080/testes/'+teste, {
+            method: "GET",
+            headers: {'Content-type': 'application/json'},
+            })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data.perguntas)
+            data.perguntas.push(novaPergunta)
+            console.log(data.perguntas)
+            setPerguntas(data.perguntas)
+        })
+        }
+       catch(e){
+            console.log(e)
+        }
+        console.log(perguntas)
     }
 
     return(
