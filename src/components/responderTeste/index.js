@@ -35,15 +35,10 @@ const ResponderTeste = () => {
             <h2 id="nome">Teste: </h2>
             <section id="sec">
                 <form action="" id="formu">
-<<<<<<< HEAD
-                    {teste.perguntas.forEach(pergunta => {
-                        
-=======
                     {teste.perguntas?.map((pergunta, index) => {
                         return (
                            <PerguntaReponder teste ={pergunta} index = {index}/>
                         )
->>>>>>> 8eb56e6647a3aa246068047d12148205601a3a47
                     })}
                     {/* //     // console.log(teste.perguntas)
                     //     // teste.perguntas.map((teste, index) => { */}
