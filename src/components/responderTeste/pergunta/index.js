@@ -5,16 +5,16 @@ const PerguntaReponder = ({teste, index}) => {
                 <input type="text" id="pergunta" value={`Pergunta: ${teste.titulo}`} disabled/>
                 <p className="instrucao">Selecione a resposta correta: </p>
                 
-                <input className="opcaoA" type="radio" id="opcaoA" name="opcao" value={teste.perguntas.alternaticaa}/>
-                <label for="opcaoA">a) {teste.perguntas[index].alternaticaa}</label>
-                <input type="radio" id="opcaoB" name="opcao" value={teste.perguntas.alternaticab} />
-                <label for="opcaoB">b) {teste.perguntas.alternaticab}</label>
-                <input type="radio" id="opcaoC" name="opcao" value={teste.perguntas.alternaticac} />
-                <label for="opcaoC">c) {teste.perguntas.alternaticac}</label>
-                <input type="radio" id="opcaoD" name="opcao" value={teste.perguntas.alternaticad} />
-                <label for="opcaoD">d) {teste.perguntas.alternaticad}</label>
-                <input type="radio" id="opcaoE" name="opcao" value={teste.perguntas.alternaticae} />
-                <label for="opcaoE">e) {teste.perguntas.alternaticae}</label>
+                <input className={`opcaoA${index}`} type="radio" id={`opcaoA${index}`} name={`opcao${index}`} value={teste.opcaoA}/>
+                <label for={`opcaoA${index}`}>a) {teste.opcaoA}</label>
+                <input type="radio" id={`opcaoB${index}`} name={`opcao${index}`} value={teste.opcaoB} />
+                <label for={`opcaoB${index}`}>b) {teste.opcaoB}</label>
+                <input type="radio" id={`opcaoC${index}`} name={`opcao${index}`} value={teste.opcaoC} />
+                <label for={`opcaoC${index}`}>c) {teste.opcaoC}</label>
+                <input type="radio" id={`opcaoD${index}`} name={`opcao${index}`} value={teste.opcaoD} />
+                <label for={`opcaoD${index}`}>d) {teste.opcaoD}</label>
+                <input type="radio" id={`opcaoE${index}`} name={`opcao${index}`} value={teste.opcaoD} />
+                <label for={`opcaoE${index}`}>e) {teste.opcaoD}</label>
         </>
     )
 }

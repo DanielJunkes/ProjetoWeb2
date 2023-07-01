@@ -35,14 +35,15 @@ const ResponderTeste = () => {
             <h2 id="nome">Teste: </h2>
             <section id="sec">
                 <form action="" id="formu">
-                    {teste.perguntas.forEach(pergunta => {
-                        map
+                    {teste.perguntas?.map((pergunta, index) => {
+                        return (
+                           <PerguntaReponder teste ={pergunta} index = {index}/>
+                        )
                     })}
                     {/* //     // console.log(teste.perguntas)
                     //     // teste.perguntas.map((teste, index) => { */}
                     {/* // //     console.log("kk");
                     // //     return (
-                    //         // <PerguntaReponder teste ={teste} index = {index}/>
                     // //     )
                     // // }) */}
                     
