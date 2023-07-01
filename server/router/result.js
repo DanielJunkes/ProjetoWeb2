@@ -8,7 +8,7 @@ const router = express.Router();
 router.post('/create', (req, res) => {
      const dados = req.body
      testeBD(dados).save()
-     res.send(req.body)
+     res.send(dados )
  });
 
 

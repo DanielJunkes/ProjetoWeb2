@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useContext} from "react";
-import "./style.css"
+import "./styleResponder.css"
 
 import {Contexto} from "../../routerProvider"
 
 import PerguntaReponder from "./pergunta";
+import { Link } from "react-router-dom";
 
 const ResponderTeste = () => {
     const {usuario} = useContext(Contexto)
@@ -31,12 +32,10 @@ const ResponderTeste = () => {
 
     const testeFinalizado = () => {
         console.log(usuario);
-
-        
         console.log(tamanho);
 
         let certo=0
-        for(let i=0; i<=tamanho; i++) {
+        for(let i=0; i<tamanho; i++) {
             let seg = document.querySelector('input[name=opcao'+i+']:checked').value
             if(testeg.perguntas[0].resposta.toUpperCase() == seg) {
                 console.log(testeg.perguntas[0].resposta);
@@ -56,16 +55,15 @@ const ResponderTeste = () => {
         const result = {
             "teste": testeg.titulo,
             "nome": usuario,
-            "“qtd_perguntas": tamanho,
+            "qtd_perguntas": tamanho,
             "qtd_acertos": certo
-
         }
 
         try{
             fetch('http://localhost:8080/result/create', {
-                method: "GET",
+                method: "POST",
                 headers: {'Content-type': 'application/json'},
-                body: result
+                body: JSON.stringify(result)
             })
             .then(response => {
                 return response.json()
@@ -107,7 +105,10 @@ const ResponderTeste = () => {
                 </form>
             </section>
                 <div className="containerBotoes" id="botao">
-                    <input id="cancelar" className="btn" type="button" value="Encerrar Teste" onClick={testeFinalizado}/>
+                    <Link to="/">
+                        <input id="cancelar" className="btn" type="button" value="Encerrar Teste" onClick={testeFinalizado}/>
+
+                    </Link>
                 </div>
             <button className="btnVoltar" type="button" >Cancelar</button>
         </div>

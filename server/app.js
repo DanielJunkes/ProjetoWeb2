@@ -24,7 +24,7 @@ app.use(routers.urlencoded({extended: false}))
 app.use("/", router);
 app.use("/user", routerLogin)
 app.use("/testes", routerTestes)
-app.use("/result", routerTestes)
+app.use("/result", routerResult)
 
 app.listen(8080, ()=> {
     console.log("Rodando na 8080");

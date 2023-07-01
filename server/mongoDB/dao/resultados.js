@@ -5,7 +5,7 @@ var resultadoSchema = new mongoose.Schema({
     teste: String,
     nome: String,
     qtd_perguntas: String,
-    qtd_acertos: String,
+    qtd_acertos: String
 },{
     versionKey: false
 })
