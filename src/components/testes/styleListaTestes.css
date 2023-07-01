@@ -1,0 +1,107 @@
+/* padrão todas as telas */
+
+body{
+    background-color: rgb(235,235,235);
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo{
+    width: 70px;
+    margin-right: 10px;
+}
+
+.titulo{
+    background-color: #131f2f;
+    color: white;
+    padding: 15px 5px 15px 5px;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    border-radius: 30px;
+}
+
+.containerConteudo{
+    background-color: white;
+    border-radius: 30px;
+}
+
+/* botão de voltar se tiver */
+
+.containerTestes .btnVoltar{
+    height: 60px;
+    width: 260px;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    background-color: #fff5ec;
+}
+
+.btnVoltar:hover{
+    background-color: #e8a34b;
+    color: #fff;
+    box-shadow: 0px 8px 15px #c68c41;
+}
+
+.containerConteudo{
+    font-family: 'Roboto', sans-serif;
+}
+
+.containerConteudo{
+    border-radius: 30px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-style: none;
+    padding: 25px 0px 35px;
+}
+
+.tituloConteudo{
+    margin: 10px;
+    padding: 10px;
+    color: #e8a34b;
+    font-size: 35px;
+}
+
+sec .conteudoSec{
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    border-style: none;
+    border-radius: 30px;
+}
+.btnForms{
+    margin-bottom: 30px;
+    height: 50px;
+    width: 200px;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    background-color: #fff5ec;
+}
+
+.btnForms:hover{
+    background-color: #e8a34b;
+    transform: translateY(-7px);
+    box-shadow: 0px 15px 20px #c68c41;
+    color: #fff;
+}
+
+.sec{
+    margin: auto;
+    margin-bottom: 50px;
+    width: fit-content;
+    padding: 50px;
+    letter-spacing: 2.5px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+}

@@ -1,6 +1,11 @@
 import React from "react";
+<<<<<<< HEAD
 import { useState, useContext, useEffect} from "react";
 import "./style.css"
+=======
+import { useState } from "react";
+import "./styleListaTestes.css"
+>>>>>>> 1316418600219e9d3b51623ef39965c90c6affef
 
 import {Contexto} from "../../routerProvider"
 import { Link } from "react-router-dom";
@@ -41,11 +46,15 @@ const Login = () =>{
                         <div className="containerTestes">
                             <section id="sec">
                             {testes.map((teste, index)=>(
-                                <div key={index}>
+                                <div className="conteudoSec" key={index}>
                                     <h1>{teste.titulo}</h1>
+<<<<<<< HEAD
                                     <Link to="/responder">
                                         <button onClick={() => handleSetTeste(teste._id)}>Responder</button>
                                     </Link>
+=======
+                                    <button className="btnForms">Responder</button>
+>>>>>>> 1316418600219e9d3b51623ef39965c90c6affef
                                 </div>
                             ))}
                             </section>

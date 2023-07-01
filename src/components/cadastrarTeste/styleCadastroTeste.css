@@ -44,19 +44,14 @@ body{
 
 /* botão de voltar se tiver */
 
-.btnVoltar{
-    width: 100%;
-    padding: 20px;
-    color: #e8a34b;
-    border-radius: 30px;
-    border-style: none;
-    font-family: 'Roboto', sans-serif;
-    font-size: 25px;
-    font-weight: 600;
+.containerConteudo .btnVoltar{
+    height: 60px;
+    width: 250px;
+    font-size: 18px;
     letter-spacing: 1.5px;
     transition: all 0.3s ease 0s;
     cursor: pointer;
-    outline: none;
+    background-color: #fff5ec;
 }
 
 .btnVoltar:hover{
@@ -66,13 +61,6 @@ body{
 }
 
 /* código específico */
-
-h2{
-    color: #838383;
-    letter-spacing: 1.5px;
-    font-size: 35px;
-}
-
 h1{
     font-weight: 500;
     padding: 0 10px;
@@ -82,16 +70,10 @@ h1{
     font-family: 'Roboto', sans-serif;
 }
 
-.containerForms{
-    border-radius: 30px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    border-style: none;
-    padding: 25px 0px 35px;
-}
-
 .tituloForm{
+    margin: 10px;
+    padding: 10px;
     color: #e8a34b;
-    margin: 0px 0px 20px;
     font-size: 35px;
 }
 
@@ -103,16 +85,29 @@ label{
 
 .lapisPng{
     height: 20px;
+    width: 20px;
+}
+
+.tituloNome{
+    border-style: none;
+    font-weight: 600;
+    padding-left: 10px;
+}
+
+.containerNome{
+    display: initial;
+    padding: 10px;
 }
 
 .inputNomeTeste{
     width: 300px;
-    margin-bottom: 10px;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
     border-style: none;
     border-radius: 30px;
     font-weight: 500;
     display: initial;
+    padding-left: 10px;
+    background-color: #eff1ee;
 }
 
 .inputNomeTeste:hover{
@@ -120,17 +115,19 @@ label{
     background-color: #fff;
     cursor: text;
     color: black;
+    
 }
 
 .btnForms{
-    width: 515px;
+    height: 50px;
+    width: 200px;
     padding: 10px;
-    margin-top: 15px;
     font-size: 18px;
     font-weight: 600;
     letter-spacing: 1.5px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    display: initial;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
     background-color: #fff5ec;
 }
 
@@ -142,11 +139,23 @@ label{
 }
 
 #sec{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     margin: 25px;
-    margin-bottom: 35px;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #f3ddc1;
+}
+.sec .h1{
+    font-weight: 600;
+}
+.conteudoSec{
+    justify-content: space-between;
+    margin: 10px;
+    box-shadow: 0px 6px 13px rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #f3ddc1;
+    text-align: center;
 }
 
 .containerTeste{
@@ -193,5 +202,8 @@ article input:hover{
 }
 
 .testeCriado{
-    margin-top: 35px;
+    margin: 10px;
+    padding: 10px;
+    color: #000000;
+    font-size: 35px;
 }

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "./style.css"
+import "./styleCadastro.css"
 
 import imgEmail from "../../img/email.png"
 import imgSenha from "../../img/senha.png"

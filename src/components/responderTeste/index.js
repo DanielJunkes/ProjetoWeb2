@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext} from "react";
-import "./style.css"
+import "./styleResponder.css"
 
 import {Contexto} from "../../routerProvider"
 
