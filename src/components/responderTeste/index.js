@@ -17,8 +17,9 @@ const ResponderTeste = () => {
             return response.json()
         })
         .then(data => {
-            console.log(data.perguntas[0]);
-            setTeste(data)
+            console.log(data);
+            console.log(data[0].perguntas[0]);
+            setTeste(data[0])
         })
         }
        catch(e){
