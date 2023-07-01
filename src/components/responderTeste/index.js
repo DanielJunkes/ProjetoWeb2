@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from "react";
 import "./style.css"
 
-import perguntaReponder from "./pergunta";
+import PerguntaReponder from "./pergunta";
 
 const ResponderTeste = () => {
-    const [testes, setTestes] = useState([])
+    const [teste, setTeste] = useState([])
 
-    const getTestes = async() =>{
+    const getTeste = async() =>{
         try{
-             await fetch('http://localhost:8080/testes', {
-            method: "GET",
-            headers: {'Content-type': 'application/json'},
-            })
+            await fetch('http://localhost:8080/testes/649e4408de301c0a2fdb14fb', {
+                method: "GET",
+                headers: {'Content-type': 'application/json'},
+            }
+        )
         .then(response => {
             return response.json()
         })
         .then(data => {
-            setTestes(data)
+            console.log(data.perguntas[0]);
+            setTeste(data)
         })
         }
        catch(e){
@@ -25,7 +27,7 @@ const ResponderTeste = () => {
     }
 
     useEffect(()=>{
-        getTestes()
+        getTeste()
     }, [])
 
     return (
@@ -34,9 +36,12 @@ const ResponderTeste = () => {
             <h2 id="nome">Teste: </h2>
             <section id="sec">
                 <form action="" id="formu">
-                    {testes.map((teste) => {
-                        console.log(teste);
-                    })}
+                    {/* {testes.perguntas.map((teste, index) => {
+                        console.log("kk");
+                        return (
+                            <PerguntaReponder teste ={teste} index = {index}/>
+                        )
+                    })} */}
                 </form>
                 <div className="containerBotoes" id="botao">
                     <input id="prox" className="btn" type="button" value="Próxima Pergunta" onclick="getReposta()"/>
