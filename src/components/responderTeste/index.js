@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext} from "react";
 import "./style.css"
+
+import {Contexto} from "../../routerProvider"
 
 import PerguntaReponder from "./pergunta";
 
 const ResponderTeste = () => {
+    const {usuario} = useContext(Contexto)
+   
     const [teste, setTeste] = useState([])
-
+    
     const getTeste = async() =>{
         try{
             await fetch('http://localhost:8080/testes/649e4408de301c0a2fdb14fb', {
@@ -24,6 +28,8 @@ const ResponderTeste = () => {
     }
 
     const testeFinalizado = () => {
+        console.log(usuario);
+
         const result = {
             "teste": "teste",
             "nome": ""
