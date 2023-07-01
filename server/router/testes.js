@@ -9,15 +9,30 @@ router.get('/', async (req, res) => {
     res.json(per)
  })
 
+router.get('/:id', async (req, res) => {
+    const id = {
+        _id: req.params.id
+    }
+    const per = await testeBD.findById(id);
+    res.send(per)
+ })
+
+
 router.post('/create', (req, res) => {
      const dados = req.body
      testeBD(dados).save()
      res.send(req.body)
  });
 
+
+
 router.put('/update', async (req, res) => {
-    const dados = req.body;
-    await testeBD.findByIdAndUpdate(dados.id, {nome: dados.nome, senha: dados.senha});
+    const dados = {
+        id: req.body.id,
+        perguntas: req.body.perguntas
+    };
+
+    await testeBD.findByIdAndUpdate(dados.id, {perguntas: dados.perguntas});
     res.send(dados);
 });
 

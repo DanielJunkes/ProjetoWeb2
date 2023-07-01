@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import {Provider} from "../../routerProvider"
 import {Contexto} from "../../routerProvider"
 import "./style.css"
 
@@ -21,6 +20,7 @@ const Home = () =>{
     }
 
     const menu= {
+        //aaa
             cadastrar: () => {
                 return (
                     <Link to="/cadastrar">

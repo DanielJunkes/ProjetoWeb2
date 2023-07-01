@@ -1,8 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "./style.css"
 
 import {Contexto} from "../../routerProvider"
-import {Link} from 'react-router-dom';
 
 import imgLogin from "../../img/email.png"
 import imgSenha from "../../img/senha.png"
@@ -10,7 +9,11 @@ import imgSenha from "../../img/senha.png"
 const Login = () => {
 
     const {rota} = useContext(Contexto)
+    const {setUsuario} = useContext(Contexto)
 
+    const handleSetUsuario = (valor) =>{
+        setUsuario(valor)
+    }
 
     const  verificarUsuario = async () =>{
     try{
@@ -32,6 +35,7 @@ const Login = () => {
             )
             .then(data => {
                 if(senha === data.senha){
+                    handleSetUsuario(nome)
                     window.location=('http://localhost:3000'+rota)
                     }else{
                      alert("Senha Incorreta")
@@ -46,7 +50,6 @@ const Login = () => {
     }catch(e){
         console.log(e)
     }
-        
     }
 
         return(
