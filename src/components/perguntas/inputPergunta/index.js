@@ -10,6 +10,7 @@ const InputPergunta = () => {
     const [perguntas, setPerguntas] = useState([])
 
     const addPergunta = async () =>{
+
         const nome = document.getElementById("nomeI").value
         const opcaoA = document.getElementById("op1").value
         const opcaoB = document.getElementById("op2").value
@@ -37,9 +38,7 @@ const InputPergunta = () => {
             return response.json()
         })
         .then(data => {
-            console.log(data.perguntas)
             data.perguntas.push(novaPergunta)
-            console.log(data.perguntas)
             setPerguntas(data.perguntas)
         })
         }
@@ -47,6 +46,25 @@ const InputPergunta = () => {
             console.log(e)
         }
         console.log(perguntas)
+        const dados = {
+                id: teste,
+                perguntas: perguntas
+            }
+        const dadosJ = JSON.stringify(dados)
+        try {
+            await fetch('http://localhost:8080/testes/update', {
+            method: "PUT",
+            headers: {'Content-type': 'application/json'},
+            body: dadosJ
+        })
+        .then(response => {
+        })
+        .then(data => {
+        })
+        }
+       catch(e){
+            console.log(e)
+        }
     }
 
     return(
@@ -76,7 +94,8 @@ const InputPergunta = () => {
                 </div>
                 <Link to="/editarteste">
                     <input type="button" value="Adicionar Pergunta" onClick={addPergunta}/>
-                </Link>  
+                </Link>
+                    
             </art> 
         </>
     )

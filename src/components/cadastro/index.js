@@ -9,6 +9,11 @@ import {Contexto} from "../../routerProvider"
 const Cadastro = () =>{
 
     const {rota} = useContext(Contexto)
+    const {setUsuario} = useContext(Contexto)
+
+    const handleSetUsuario = (valor) =>{
+        setUsuario(valor)
+    }
     
     const cadastroUsuario = () => {
         const nome = document.getElementById("emailInputCadastro").value;
@@ -27,6 +32,7 @@ const Cadastro = () =>{
                 return response.json();
             })
             .then(data => {
+                handleSetUsuario(nome)
                 window.location=('http://localhost:3000'+rota)
             })
             .catch(error => {

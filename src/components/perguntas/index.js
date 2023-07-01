@@ -28,25 +28,7 @@ const EditarTeste = () =>{
        catch(e){
             console.log(e)
         }
-        try {
-            await fetch('http://localhost:8080/testes/update', {
-            method: "PUT",
-            headers: {'Content-type': 'application/json'},
-            body: {
-                id: teste,
-                perguntas: perguntas
-            }
-            })
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            setPerguntas(data.perguntas)
-        })
-        }
-       catch(e){
-            console.log(e)
-        }
+        console.log(perguntas)
     }
     useEffect(()=>{
         getPergunta()
@@ -89,9 +71,14 @@ const EditarTeste = () =>{
                     <input class="btn" type="button" value="Add Pergunta"/>
                 </Link>
                 <div class="containerBtn">
-                    <input id="salvar" class="btn" type="button" value="Salvar Alteração" />
+                    <Link to="/addteste">
+                       <input id="salvar" class="btn" type="button" value="Finalizar" /> 
+                    </Link>
                 </div>
-                <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
+                <Link to="/">
+                     <button class="btnVoltar" type="button">Cancelar</button>
+                </Link>
+               
             </div>
         </>
     )
