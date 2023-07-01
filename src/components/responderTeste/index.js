@@ -11,17 +11,22 @@ const ResponderTeste = () => {
             await fetch('http://localhost:8080/testes/649e4408de301c0a2fdb14fb', {
                 method: "GET",
                 headers: {'Content-type': 'application/json'},
-            }
-        )
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            setTeste(data[0])
-        })
-        }
-       catch(e){
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(data => {
+                setTeste(data)
+            })
+        } catch(e){
             console.log(e)
+        }
+    }
+
+    const testeFinalizado = () => {
+        const result = {
+            "teste": "teste",
+            "nome": ""
         }
     }
 
@@ -48,12 +53,11 @@ const ResponderTeste = () => {
                     // // }) */}
                     
                 </form>
-                <div className="containerBotoes" id="botao">
-                    <input id="prox" className="btn" type="button" value="Próxima Pergunta" onclick="getReposta()"/>
-                    <input id="cancelar" className="btn" type="button" value="Parar Teste" onclick="testFinalizado()"/>
-                </div>
             </section>
-            <button className="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/listadetestes'">Cancelar</button>
+                <div className="containerBotoes" id="botao">
+                    <input id="cancelar" className="btn" type="button" value="Encerrar Teste" onClick={testeFinalizado}/>
+                </div>
+            <button className="btnVoltar" type="button" >Cancelar</button>
         </div>
         </>
     )
