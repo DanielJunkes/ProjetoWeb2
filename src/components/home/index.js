@@ -20,6 +20,7 @@ const Home = () =>{
     }
 
     const menu= {
+        //aaa
             cadastrar: () => {
                 return (
                     <Link to="/cadastrar">
