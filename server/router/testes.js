@@ -24,9 +24,19 @@ router.post('/create', (req, res) => {
      res.send(req.body)
  });
 
+
+
 router.put('/update', async (req, res) => {
-    const dados = req.body;
-    await testeBD.findByIdAndUpdate(dados.id, {nome: dados.nome, senha: dados.senha});
+    const dados = {
+        id: req.body.id,
+        // titulo: req.body.titulo,
+        perguntas: req.body.perguntas
+    };
+    // const pergunta = {
+    //     da
+    // }
+
+    await testeBD.findByIdAndUpdate(dados.id, {perguntas: dados.perguntas});
     res.send(dados);
 });
 
