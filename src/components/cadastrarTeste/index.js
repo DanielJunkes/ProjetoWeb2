@@ -84,7 +84,7 @@ const CadastrarTeste = () =>{
                             {testes.map((teste, index)=>(
                                 <div key={index}>
                                     <h1>{teste.titulo}</h1>
-                                    <Link to="/addpergunta">
+                                    <Link to="/editarteste">
                                        <button onClick={() => handleSetTeste(teste._id)}>Editar</button> 
                                     </Link>
                                 </div>

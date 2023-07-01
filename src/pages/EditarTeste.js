@@ -1,12 +1,12 @@
 import React from "react";
 
 
-import CadastroPerguntas from "../components/perguntas/index"
+import EditarTeste from "../components/perguntas/index"
 
 const CadastrarPerguntas = () =>{
     return(
         <>
-            <CadastroPerguntas/>
+            <EditarTeste/>
         </>
     )
 }

@@ -1,24 +1,40 @@
-import React, {createElement, useContext} from "react";
+import React, { useContext, useState} from "react";
 import {Contexto} from '../../routerProvider'
 import "./style.css"
+
+import {Link} from 'react-router-dom';
 
 import  InputPergunta  from "./inputPergunta/index.js"
 import imgLapis from "../../img/pencil.png"
 
-const Pergunta = () =>{
+const EditarTeste = () =>{
 
     const {teste} = useContext(Contexto)
+    const {pergunta} = useContext(Contexto)
 
-    console.log(teste)
+    const [perguntas, setPerguntas] = useState([])
 
-    const addPergunta = () => {
-        const sec = document.getElementById("sec")
-        const pergunta = createElement(<InputPergunta/>)
-        sec.append(<InputPergunta/>)
+    const getPergunta = async() =>{
+        try {
+            await fetch('http://localhost:8080/testes/'+teste, {
+            method: "GET",
+            headers: {'Content-type': 'application/json'},
+            })
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+            setPerguntas(data)
+        })
+        }
+       catch(e){
+            console.log(e)
+        }
     }
+
     return(
         <>
-            
             <div class="containerConteudo">
                 <div class="containerTopo">
                     <form>
@@ -33,9 +49,11 @@ const Pergunta = () =>{
                 <section id="sec">
                     <InputPergunta />
                 </section>
-                <input class="btn" type="button" value="Add Pergunta" onClick={addPergunta} />
+                <Link to="/addpergunta">
+                    <input class="btn" type="button" value="Add Pergunta"/>
+                </Link>
                 <div class="containerBtn">
-                    <input id="salvar" class="btn" type="button" value="Salvar Alteração" onclick="salvarPergunta()" />
+                    <input id="salvar" class="btn" type="button" value="Salvar Alteração" />
                 </div>
                 <button class="btnVoltar" type="button" onclick="window.location = 'http://localhost:8080/login/cadastrodetestes'">Cancelar</button>
             </div>
@@ -43,4 +61,4 @@ const Pergunta = () =>{
     )
 }
 
-export default Pergunta
+export default EditarTeste
