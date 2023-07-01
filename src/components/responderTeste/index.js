@@ -17,8 +17,7 @@ const ResponderTeste = () => {
             return response.json()
         })
         .then(data => {
-            console.log(data.perguntas[0]);
-            setTeste(data)
+            setTeste(data[0])
         })
         }
        catch(e){
@@ -36,12 +35,17 @@ const ResponderTeste = () => {
             <h2 id="nome">Teste: </h2>
             <section id="sec">
                 <form action="" id="formu">
-                    {/* {testes.perguntas.map((teste, index) => {
-                        console.log("kk");
-                        return (
-                            <PerguntaReponder teste ={teste} index = {index}/>
-                        )
-                    })} */}
+                    {teste.perguntas.forEach(pergunta => {
+                        map
+                    })}
+                    {/* //     // console.log(teste.perguntas)
+                    //     // teste.perguntas.map((teste, index) => { */}
+                    {/* // //     console.log("kk");
+                    // //     return (
+                    //         // <PerguntaReponder teste ={teste} index = {index}/>
+                    // //     )
+                    // // }) */}
+                    
                 </form>
                 <div className="containerBotoes" id="botao">
                     <input id="prox" className="btn" type="button" value="Próxima Pergunta" onclick="getReposta()"/>
