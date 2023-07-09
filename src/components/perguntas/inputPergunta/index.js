@@ -10,6 +10,7 @@ const InputPergunta = () => {
     const [perguntas, setPerguntas] = useState([])
 
     const addPergunta = async () =>{
+        let listaPerguntas = []
 
         const nome = document.getElementById("nomeI").value
         const opcaoA = document.getElementById("op1").value
@@ -28,6 +29,7 @@ const InputPergunta = () => {
             opcaoE: opcaoE,
             opcaoCorreta: opcaoCerta
         }
+
         try {
             await fetch('http://localhost:8080/testes/'+teste, {
                 method: "GET",
@@ -37,28 +39,26 @@ const InputPergunta = () => {
                 return response.json()
             })
             .then(async data => {
-                 setPerguntas(data.perguntas)
+                listaPerguntas = data.perguntas
             })
         } catch(e){
             console.log(e)
         }
-        perguntas.push(novaPergunta)
-        console.log(perguntas);
+
+        listaPerguntas.push(novaPergunta)
+        
         const dados = {
                 id: teste,
-                perguntas: perguntas
+                perguntas: listaPerguntas
         }
 
         const dadosJ = JSON.stringify(dados)
+        
         try {
             await fetch('http://localhost:8080/testes/update', {
                 method: "PUT",
                 headers: {'Content-type': 'application/json'},
                 body: dadosJ
-            }) 
-            .then(response => {
-            })
-            .then(data => {
             })
         } catch(e){
             console.log(e)
@@ -90,9 +90,10 @@ const InputPergunta = () => {
                         <option value="E">E</option>
                     </select>
                 </div>
-                {/* <Link to="/editarteste"> */}
+
+                <Link to="/editarteste">
                     <input type="button" value="Adicionar Pergunta" onClick={() => addPergunta()}/>
-                {/* </Link> */}
+                </Link>
                     
             </art> 
         </>

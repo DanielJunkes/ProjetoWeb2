@@ -29,9 +29,12 @@ const EditarTeste = () =>{
             console.log(e)
         }
     }
+    
     useEffect(()=>{
         getPergunta()
+        getPergunta()
     }, [])
+
     return(
         <>
             <div class="containerConteudo">
