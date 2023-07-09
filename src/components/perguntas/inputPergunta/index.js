@@ -29,7 +29,7 @@ const InputPergunta = () => {
             opcaoCorreta: opcaoCerta
         }
         try {
-             fetch('http://localhost:8080/testes/'+teste, {
+            await fetch('http://localhost:8080/testes/'+teste, {
                 method: "GET",
                 headers: {'Content-type': 'application/json'},
             })
@@ -42,28 +42,27 @@ const InputPergunta = () => {
         } catch(e){
             console.log(e)
         }
-        
-        await setPerguntas(novaPergunta)
+        perguntas.push(novaPergunta)
         console.log(perguntas);
-        // const dados = {
-        //         id: teste,
-        //         perguntas: perguntas
-        // }
+        const dados = {
+                id: teste,
+                perguntas: perguntas
+        }
 
-        // const dadosJ = JSON.stringify(dados)
-        // try {
-        //     await fetch('http://localhost:8080/testes/update', {
-        //         method: "PUT",
-        //         headers: {'Content-type': 'application/json'},
-        //         body: dadosJ
-        //     }) 
-        //     .then(response => {
-        //     })
-        //     .then(data => {
-        //     })
-        // } catch(e){
-        //     console.log(e)
-        // }
+        const dadosJ = JSON.stringify(dados)
+        try {
+            await fetch('http://localhost:8080/testes/update', {
+                method: "PUT",
+                headers: {'Content-type': 'application/json'},
+                body: dadosJ
+            }) 
+            .then(response => {
+            })
+            .then(data => {
+            })
+        } catch(e){
+            console.log(e)
+        }
     }
 
     return(
