@@ -48,6 +48,7 @@ const EditarTeste = () =>{
                     </form> 
                 </div>
                 <section id="sec">
+                    {console.log(perguntas)}
                 {perguntas.map((pergunta, index)=>(
                                 <div key={index}>
                                     <art id="art">

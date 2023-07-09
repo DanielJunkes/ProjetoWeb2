@@ -21,13 +21,13 @@ const InputPergunta = () => {
         const opcaoCerta = document.getElementById("alternativacorreta").value
 
         const novaPergunta = {
-            Pergunta: nome,
+            titulo: nome,
             opcaoA: opcaoA,
             opcaoB: opcaoB,
             opcaoC: opcaoC,
             opcaoD: opcaoD,
             opcaoE: opcaoE,
-            opcaoCorreta: opcaoCerta
+            resposta: opcaoCerta
         }
 
         try {
@@ -53,7 +53,7 @@ const InputPergunta = () => {
         }
 
         const dadosJ = JSON.stringify(dados)
-        
+
         try {
             await fetch('http://localhost:8080/testes/update', {
                 method: "PUT",
