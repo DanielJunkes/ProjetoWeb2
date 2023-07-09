@@ -34,8 +34,10 @@ const Login = () => {
                 }
             )
             .then(data => {
-                if(senha === data.senha){
+                if(senha === data.senha) {
                     handleSetUsuario(nome)
+                    sessionStorage.setItem('nome', nome)
+                    sessionStorage.setItem('idUser', data._id)
                     window.location=('http://localhost:3000'+rota)
                     }else{
                      alert("Senha Incorreta")

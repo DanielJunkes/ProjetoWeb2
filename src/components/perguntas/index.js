@@ -7,7 +7,6 @@ import {Link} from 'react-router-dom';
 import imgLapis from "../../img/pencil.png"
 
 const EditarTeste = () =>{
-
     const {teste} = useContext(Contexto)
 
     const [perguntas, setPerguntas] = useState([])

@@ -33,6 +33,8 @@ const Cadastro = () =>{
             })
             .then(data => {
                 handleSetUsuario(nome)
+                sessionStorage.setItem('idUser', data._id)
+                sessionStorage.setItem('nome', nome)
                 window.location=('http://localhost:3000'+rota)
             })
             .catch(error => {

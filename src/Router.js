@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes } from 'react-router-dom';
 
 import Header from "../src/components/header/index"
 
@@ -16,7 +16,10 @@ import AdicionarPergunta from "./pages/AdicionarPergunta.js"
 export default () =>{
     return (
         <>
-            <Header/>
+            <Link to="/">
+                <Header/>
+            </Link>
+            
             <Routes>
                 <Route element = {<Inicio />} exact path='/' />
                 <Route element = {<AdicionarPergunta />} exact path='/addpergunta' />

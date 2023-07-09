@@ -1,18 +1,17 @@
 import React, { useState, useEffect, useContext} from "react";
-import "./styleResponder.css"
-
-import {Contexto} from "../../routerProvider"
-
-import PerguntaReponder from "./pergunta";
 import { Link } from "react-router-dom";
+import "./styleResponder.css"
+import {Contexto} from "../../routerProvider"
+import PerguntaReponder from "./pergunta";
 
 const ResponderTeste = () => {
     const {usuario} = useContext(Contexto)
+    const {idUsuario} = useContext(Contexto)
     const {teste} = useContext(Contexto)
     let tamanho=0
     
     const [testeg, setTesteg] = useState([])
-    console.log(teste);
+    
     const getTeste = async() =>{
         try{
             await fetch('http://localhost:8080/testes/'+teste, {
@@ -54,7 +53,8 @@ const ResponderTeste = () => {
         
         const result = {
             "teste": testeg.titulo,
-            "nome": usuario,
+            "nome": sessionStorage.getItem('nome'),
+            "idUser": sessionStorage.getItem('idUser'),
             "qtd_perguntas": tamanho,
             "qtd_acertos": certo
         }

@@ -6,7 +6,9 @@ import {Link} from 'react-router-dom';
 const InputPergunta = () => {
 
     const {teste} = useContext(Contexto)
-
+    const {usuario} = useContext(Contexto)
+    console.log(usuario);
+    
     const [perguntas, setPerguntas] = useState([])
 
     const addPergunta = async () =>{
