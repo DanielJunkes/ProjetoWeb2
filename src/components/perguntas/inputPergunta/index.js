@@ -7,9 +7,7 @@ const InputPergunta = () => {
 
     const {teste} = useContext(Contexto)
     const {usuario} = useContext(Contexto)
-    console.log(usuario);
     
-    const [perguntas, setPerguntas] = useState([])
 
     const addPergunta = async () =>{
         let listaPerguntas = []

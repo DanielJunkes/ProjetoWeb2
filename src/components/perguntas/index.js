@@ -11,6 +11,8 @@ const EditarTeste = () =>{
 
     const [perguntas, setPerguntas] = useState([])
 
+    const [titulo, setTitulo] = useState("")
+
     const getPergunta = async() =>{
         try {
             await fetch('http://localhost:8080/testes/'+teste, {
@@ -21,6 +23,7 @@ const EditarTeste = () =>{
             return response.json()
         })
         .then(data => {
+            setTitulo(data.titulo)
             setPerguntas(data.perguntas)
         })
         }
@@ -28,31 +31,57 @@ const EditarTeste = () =>{
             console.log(e)
         }
     }
-    
-    const habilitarEdicao = () => {
-        const inputs = document.querySelectorAll('input')
-        for(let input of inputs) {
-            input.removeAttribute("disabled")
-        }
-    } 
 
+    const addPergunta = () =>{
+        const novaPergunta = {
+            titulo: "",
+            opcaoA: "",
+            opcaoB: "",
+            opcaoC: "",
+            opcaoD: "",
+            opcaoE: "",
+            resposta: ""
+        }
+        setPerguntas([...perguntas, novaPergunta])
+    }
+    const deletar = async () =>{
+        const dados = {
+            id: teste
+        }
+        const dadosS = JSON.stringify(dados)
+        try {
+            await fetch('http://localhost:8080/testes/delete', {
+            method: "DELETE",
+            headers: {'Content-type': 'application/json'},
+            body: dadosS
+            })
+        .then(response => {
+            if(response.ok){
+                alert("Teste Excluido com Sucesso")
+            }
+        })
+        }
+       catch(e){
+            console.log(e)
+        }
+    }
     useEffect(()=>{
         getPergunta()
-        getPergunta()
     }, [])
-
     return(
         <>
             <div class="containerConteudo">
                 <div class="containerTopo">
                     <form>
                         <div className="containerNome">
-                            <div oncClick={() => habilitarEdicao()}>
+                            <div>
                                 <img className="lapisPng" src={imgLapis}  alt="Lápis"/>
-
                             </div>
                             <label for="nometeste">Nome do Teste:</label>
-                            <input className="inputNomeTeste" type="text" id="nometeste" required disabled/>
+                            <input className="inputNomeTeste" type="text" id="nometeste" value={titulo} required/>
+                            <Link to="/addteste">
+                            <input type="button" value="Excluir Teste" onClick={() => deletar()}/>
+                            </Link>
                         </div>
                     </form> 
                 </div>
@@ -61,21 +90,21 @@ const EditarTeste = () =>{
                                 <div key={index}>
                                     <art id="art">
                                     <h2 id="nome">Titulo</h2>
-                                    <input id="nomeI" type="text" value={pergunta.titulo} disabled/>    
+                                    <input id="nomeI" type="text" value={pergunta.titulo}/>    
                                     <label for="op">Opção A: </label> 
-                                    <input type="text" id="op1" className="op" value={pergunta.opcaoA} disabled/>
+                                    <input type="text" id="op1" className="op" value={pergunta.opcaoA}/>
                                     <label for="op">Opção B: </label> 
-                                    <input type="text" id="op2" className="op" value={pergunta.opcaoB} disabled/>
+                                    <input type="text" id="op2" className="op" value={pergunta.opcaoB}/>
                                     <label for="op">Opção C: </label> 
-                                    <input type="text" id="op3" className="op" value={pergunta.opcaoC} disabled/>
+                                    <input type="text" id="op3" className="op" value={pergunta.opcaoC}/>
                                     <label for="op"> D: </label> 
-                                    <input type="text" id="op4" className="op" value={pergunta.opcaoD} disabled/>
+                                    <input type="text" id="op4" className="op" value={pergunta.opcaoD}/>
                                     <label for="op">Opção E: </label>     
-                                    <input type="text" id="op5" className="op" value={pergunta.opcaoE} disabled />
+                                    <input type="text" id="op5" className="op" value={pergunta.opcaoE} />
                                     <div className="alternativacorreta">
                                     <label for="alternativacorreta: ">Alternativa correta:</label>
                                     <select name="cars" id="alternativacorreta" select="A">
-                                        <option disabled selected>{pergunta.resposta}</option>
+                                        <option selected>{pergunta.resposta}</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="C">C</option>
@@ -88,12 +117,10 @@ const EditarTeste = () =>{
                                 </div>
                             ))}
                 </section>
-                <Link to="/addpergunta">
-                    <input class="btn" type="button" value="Add Pergunta"/>
-                </Link>
+                    <input class="btn" type="button" value="Add Pergunta" onClick={() => addPergunta()}/>
                 <div class="containerBtn">
                     <Link to="/addteste">
-                       <input id="salvar" class="btn" type="button" value="Finalizar" /> 
+                       <input id="salvar" class="btn" type="button" value="Salvar" /> 
                     </Link>
                 </div>
                 <Link to="/">
