@@ -29,6 +29,13 @@ const EditarTeste = () =>{
         }
     }
     
+    const habilitarEdicao = () => {
+        const inputs = document.querySelectorAll('input')
+        for(let input of inputs) {
+            input.removeAttribute("disabled")
+        }
+    } 
+
     useEffect(()=>{
         getPergunta()
         getPergunta()
@@ -40,14 +47,16 @@ const EditarTeste = () =>{
                 <div class="containerTopo">
                     <form>
                         <div className="containerNome">
-                            <img className="lapisPng" src={imgLapis} alt="Lápis"/>
+                            <div oncClick={() => habilitarEdicao()}>
+                                <img className="lapisPng" src={imgLapis}  alt="Lápis"/>
+
+                            </div>
                             <label for="nometeste">Nome do Teste:</label>
-                            <input className="inputNomeTeste" type="text" id="nometeste" required/>
+                            <input className="inputNomeTeste" type="text" id="nometeste" required disabled/>
                         </div>
                     </form> 
                 </div>
                 <section id="sec">
-                    {console.log(perguntas)}
                 {perguntas.map((pergunta, index)=>(
                                 <div key={index}>
                                     <art id="art">
@@ -63,8 +72,18 @@ const EditarTeste = () =>{
                                     <input type="text" id="op4" className="op" value={pergunta.opcaoD} disabled/>
                                     <label for="op">Opção E: </label>     
                                     <input type="text" id="op5" className="op" value={pergunta.opcaoE} disabled />
-                                    <div className="alternativacorreta"/>
-                                    <label for="alternativacorreta: ">Alternativa correta: {pergunta.resposta}</label>
+                                    <div className="alternativacorreta">
+                                    <label for="alternativacorreta: ">Alternativa correta:</label>
+                                    <select name="cars" id="alternativacorreta" select="A">
+                                        <option disabled selected>{pergunta.resposta}</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                        <option value="C">C</option>
+                                        <option value="D">D</option>
+                                        <option value="E">E</option>
+                                    </select>
+                                </div>
+                                                    
                                     </art> 
                                 </div>
                             ))}
