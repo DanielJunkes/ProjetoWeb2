@@ -28,7 +28,6 @@ const EditarTeste = () =>{
        catch(e){
             console.log(e)
         }
-        console.log(perguntas)
     }
     useEffect(()=>{
         getPergunta()

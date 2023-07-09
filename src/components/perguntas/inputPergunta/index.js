@@ -28,43 +28,42 @@ const InputPergunta = () => {
             opcaoE: opcaoE,
             opcaoCorreta: opcaoCerta
         }
-
         try {
-            await fetch('http://localhost:8080/testes/'+teste, {
-            method: "GET",
-            headers: {'Content-type': 'application/json'},
+             fetch('http://localhost:8080/testes/'+teste, {
+                method: "GET",
+                headers: {'Content-type': 'application/json'},
             })
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            data.perguntas.push(novaPergunta)
-            setPerguntas(data.perguntas)
-        })
-        }
-       catch(e){
+            .then(response => {
+                return response.json()
+            })
+            .then(async data => {
+                 setPerguntas(data.perguntas)
+            })
+        } catch(e){
             console.log(e)
         }
-        console.log(perguntas)
-        const dados = {
-                id: teste,
-                perguntas: perguntas
-            }
-        const dadosJ = JSON.stringify(dados)
-        try {
-            await fetch('http://localhost:8080/testes/update', {
-            method: "PUT",
-            headers: {'Content-type': 'application/json'},
-            body: dadosJ
-        })
-        .then(response => {
-        })
-        .then(data => {
-        })
-        }
-       catch(e){
-            console.log(e)
-        }
+        
+        await setPerguntas(novaPergunta)
+        console.log(perguntas);
+        // const dados = {
+        //         id: teste,
+        //         perguntas: perguntas
+        // }
+
+        // const dadosJ = JSON.stringify(dados)
+        // try {
+        //     await fetch('http://localhost:8080/testes/update', {
+        //         method: "PUT",
+        //         headers: {'Content-type': 'application/json'},
+        //         body: dadosJ
+        //     }) 
+        //     .then(response => {
+        //     })
+        //     .then(data => {
+        //     })
+        // } catch(e){
+        //     console.log(e)
+        // }
     }
 
     return(
@@ -92,9 +91,9 @@ const InputPergunta = () => {
                         <option value="E">E</option>
                     </select>
                 </div>
-                <Link to="/editarteste">
-                    <input type="button" value="Adicionar Pergunta" onClick={addPergunta}/>
-                </Link>
+                {/* <Link to="/editarteste"> */}
+                    <input type="button" value="Adicionar Pergunta" onClick={() => addPergunta()}/>
+                {/* </Link> */}
                     
             </art> 
         </>

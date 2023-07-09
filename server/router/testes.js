@@ -31,6 +31,7 @@ router.put('/update', async (req, res) => {
         id: req.body.id,
         perguntas: req.body.perguntas
     };
+    console.log(dados);
 
     await testeBD.findByIdAndUpdate(dados.id, {perguntas: dados.perguntas});
     res.send(dados);

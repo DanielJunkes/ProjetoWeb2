@@ -74,7 +74,7 @@ const CadastrarTeste = () =>{
                         <h2 className="tituloForm">Criar Teste  <img className="lapisPng" src={imgLapis} alt="Lápis"/></h2>
                             <div className="containerNome">
                                 <label for="nometeste" className="tituloNome">Nome do Teste:</label>
-                                <input className="inputNomeTeste" type="text" required/>
+                                <input className="inputNomeTeste" type="text" id="nometeste" required/>
                             </div>
                             <button className="btnForms" value="Enviar" onClick={addTeste}>Adicionar</button>
                         </div>
