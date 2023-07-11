@@ -54,6 +54,7 @@ const EditarTeste = () =>{
 
     const btnSalvar = () => {
         const qntPerguntasSalvas = perguntas.length-qntPerguntas;
+        let listaNovasPerguntas = []
 
         for(let i=0; i < qntPerguntas+qntPerguntasSalvas; i++) {
             if(i>qntPerguntasSalvas-1) {
@@ -68,10 +69,11 @@ const EditarTeste = () =>{
                     opcaoE: perguntas.childNodes[11].value, // Opção 5
                     resposta: perguntas.childNodes[12].childNodes[1].value // Opção correta
                 }
-
-                salvarNoBanco(novaPergunta)
+                listaNovasPerguntas.push(novaPergunta)
             }
         }
+
+        salvarNoBanco(listaNovasPerguntas)
     }
 
     const salvarNoBanco = async (novaPergunta) => {
@@ -92,11 +94,11 @@ const EditarTeste = () =>{
             console.log(e)
         }
 
-        listaPerguntas.push(novaPergunta);
+        let novaLista = listaPerguntas.concat(novaPergunta);
         
         const dados = {
                 id: teste,
-                perguntas: listaPerguntas
+                perguntas: novaLista
         }
 
         const dadosJ = JSON.stringify(dados)
@@ -190,9 +192,9 @@ const EditarTeste = () =>{
                 </section>
                     <input class="btn" type="button" value="Add Pergunta" onClick={() => addPergunta()}/>
                 <div class="containerBtn">
-                    {/* <Link to="/addteste"> */}
+                    <Link to="/addteste">
                        <input id="salvar" class="btn" type="button" value="Salvar" onClick={() => {btnSalvar()}}/> 
-                    {/* </Link> */}
+                    </Link>
                 </div>
                 <Link to="/">
                      <button class="btnVoltar" type="button">Cancelar</button>
