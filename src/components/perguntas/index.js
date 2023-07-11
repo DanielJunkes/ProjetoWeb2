@@ -11,8 +11,9 @@ const EditarTeste = () =>{
 
     const [perguntas, setPerguntas] = useState([])
     const [qntPerguntas, setQntPerguntas] = useState(0)
-    const [qntPerguntasSalvas, setQntPerguntasSalvas] = useState("")
+    // const [qntPerguntasSalvas, setQntPerguntasSalvas] = useState("")
     const [titulo, setTitulo] = useState("")
+    const [idTeste, setIdTeste] = useState("")
     
     const getPergunta = async() =>{
         //Recetar valroes
@@ -28,9 +29,8 @@ const EditarTeste = () =>{
             })
             .then(async data => {
                 setTitulo(data.titulo)
+                setIdTeste(data._id)
                 setPerguntas(data.perguntas)
-                // setQntPerguntasSalvas(0) // Recetar Valores
-                await setQntPerguntasSalvas(perguntas.length);
             })
         } catch(e){
             console.log(e)
@@ -52,19 +52,63 @@ const EditarTeste = () =>{
         setPerguntas([...perguntas, novaPergunta])
     }
 
-    const salvar = () => {
-        console.log(qntPerguntas);
-        console.log(qntPerguntasSalvas)
+    const btnSalvar = () => {
+        const qntPerguntasSalvas = perguntas.length-qntPerguntas;
+
         for(let i=0; i < qntPerguntas+qntPerguntasSalvas; i++) {
-            const perguntas = document.querySelector(`div#pergunta${i}`).childNodes[0]
-            
-            console.log(perguntas.childNodes[1].value); // Titulo
-            console.log(perguntas.childNodes[3].value); // Opção 1
-            console.log(perguntas.childNodes[5].value); // Opção 2
-            console.log(perguntas.childNodes[7].value); // Opção 3
-            console.log(perguntas.childNodes[9].value); // Opção 4
-            console.log(perguntas.childNodes[11].value); // Opção 5
-            console.log(perguntas.childNodes[12].childNodes[1].value); // Opção correta
+            if(i>qntPerguntasSalvas-1) {
+                const perguntas = document.querySelector(`div#pergunta${i}`).childNodes[0];
+
+                const novaPergunta = {
+                    titulo: perguntas.childNodes[1].value, // Titulo
+                    opcaoA: perguntas.childNodes[3].value, // Opção 1
+                    opcaoB: perguntas.childNodes[5].value, // Opção 1
+                    opcaoC: perguntas.childNodes[7].value, // Opção 3
+                    opcaoD: perguntas.childNodes[9].value, // Opção 4
+                    opcaoE: perguntas.childNodes[11].value, // Opção 5
+                    resposta: perguntas.childNodes[12].childNodes[1].value // Opção correta
+                }
+
+                salvarNoBanco(novaPergunta)
+            }
+        }
+    }
+
+    const salvarNoBanco = async (novaPergunta) => {
+        let listaPerguntas = [];
+
+        try {
+            await fetch('http://localhost:8080/testes/'+idTeste, {
+                method: "GET",
+                headers: {'Content-type': 'application/json'},
+            })
+            .then(response => {
+                return response.json()
+            })
+            .then(async data => {
+                listaPerguntas = data.perguntas
+            })
+        } catch(e){
+            console.log(e)
+        }
+
+        listaPerguntas.push(novaPergunta);
+        
+        const dados = {
+                id: teste,
+                perguntas: listaPerguntas
+        }
+
+        const dadosJ = JSON.stringify(dados)
+
+        try {
+            await fetch('http://localhost:8080/testes/update', {
+                method: "PUT",
+                headers: {'Content-type': 'application/json'},
+                body: dadosJ
+            })
+        } catch(e){
+            console.log(e)
         }
     }
 
@@ -91,6 +135,8 @@ const EditarTeste = () =>{
     }
 
     useEffect(()=>{
+        setQntPerguntas(0) // Recetar Variavel
+
         getPergunta()
     }, [])
 
@@ -145,7 +191,7 @@ const EditarTeste = () =>{
                     <input class="btn" type="button" value="Add Pergunta" onClick={() => addPergunta()}/>
                 <div class="containerBtn">
                     {/* <Link to="/addteste"> */}
-                       <input id="salvar" class="btn" type="button" value="Salvar" onClick={() => {salvar()}}/> 
+                       <input id="salvar" class="btn" type="button" value="Salvar" onClick={() => {btnSalvar()}}/> 
                     {/* </Link> */}
                 </div>
                 <Link to="/">
