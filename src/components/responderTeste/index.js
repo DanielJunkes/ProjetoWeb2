@@ -5,8 +5,6 @@ import {Contexto} from "../../routerProvider"
 import PerguntaReponder from "./pergunta";
 
 const ResponderTeste = () => {
-    const {usuario} = useContext(Contexto)
-    const {idUsuario} = useContext(Contexto)
     const {teste} = useContext(Contexto)
     let tamanho=0
     
@@ -30,24 +28,17 @@ const ResponderTeste = () => {
     }
 
     const testeFinalizado = () => {
-        console.log(usuario);
-        console.log(tamanho);
 
         let certo=0
         for(let i=0; i<tamanho; i++) {
-            let seg = document.querySelector('input[name=opcao'+i+']:checked').value
-            if(testeg.perguntas[0].resposta.toUpperCase() == seg) {
-                console.log(testeg.perguntas[0].resposta);
-                console.log(seg);
-                console.log("Kk");
-                certo++
-            } else {
-                console.log("ddd");
-                console.log(testeg.perguntas[0].resposta);
-                console.log(seg);
+            if(document.querySelector('input[name=opcao'+i+']:checked')){
+                let seg = document.querySelector('input[name=opcao'+i+']:checked').value
+                if(testeg.perguntas[0].resposta.toUpperCase() == seg) {
+                    certo++
+                } else {
 
-            }
-            console.log(certo);
+                }
+            }          
         }
 
         
@@ -74,9 +65,6 @@ const ResponderTeste = () => {
         } catch(e){
             console.log(e)
         }
-        
-
-        console.log(result);
     }
 
     useEffect(()=>{
@@ -95,19 +83,11 @@ const ResponderTeste = () => {
                            <PerguntaReponder teste ={pergunta} index = {index}/>
                         )
                     })}
-                    {/* //     // console.log(teste.perguntas)
-                    //     // teste.perguntas.map((teste, index) => { */}
-                    {/* // //     console.log("kk");
-                    // //     return (
-                    // //     )
-                    // // }) */}
-                    
                 </form>
             </section>
                 <div className="containerBotoes" id="botao">
                     <Link to="/">
                         <input id="cancelar" className="btn" type="button" value="Encerrar Teste" onClick={testeFinalizado}/>
-
                     </Link>
                 </div>
             <button className="btnVoltar" type="button" >Cancelar</button>

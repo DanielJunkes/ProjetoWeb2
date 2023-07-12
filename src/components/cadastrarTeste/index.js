@@ -38,7 +38,7 @@ const CadastrarTeste = () =>{
             }else{
                 alert("Nome em Branco")
             }
-           
+           getTestes()
         }catch(e){
             console.log(e)
         }
