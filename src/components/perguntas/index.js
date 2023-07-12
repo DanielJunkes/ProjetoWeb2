@@ -12,13 +12,10 @@ const EditarTeste = () =>{
 
     const [perguntas, setPerguntas] = useState([])
     const [qntPerguntas, setQntPerguntas] = useState(0)
-    // const [qntPerguntasSalvas, setQntPerguntasSalvas] = useState("")
     const [titulo, setTitulo] = useState("")
     const [idTeste, setIdTeste] = useState("")
     
     const getPergunta = async() =>{
-        //Recetar valroes
-        // setQntPerguntas(0)
         
         try {
             await fetch('http://localhost:8080/testes/'+teste, {
@@ -54,14 +51,41 @@ const EditarTeste = () =>{
     }
 
     const btnSalvar = () => {
-        const qntPerguntasSalvas = perguntas.length-qntPerguntas;
         let listaNovasPerguntas = []
-
-        for(let i=0; i < qntPerguntas+qntPerguntasSalvas; i++) {
-            if(i>qntPerguntasSalvas-1) {
+        let salvar = true
+        for(let i=0; i < perguntas.length; i++) {
                 const perguntas = document.querySelector(`div#pergunta${i}`).childNodes[0];
                 
-                const novaPergunta = {
+                if(perguntas.childNodes[1].value===""){
+                    alert("Titulo Inválido")
+                    salvar = false
+                    break;
+                }else if(perguntas.childNodes[3].value===""){
+                    alert("Opção Inválida")
+                    salvar = false
+                    break;
+                }else if(perguntas.childNodes[5].value===""){
+                    alert("Opção Inválida")
+                    salvar = false
+                    break;
+                }else if(perguntas.childNodes[7].value===""){
+                    alert("Opção Inválida")
+                    salvar = false
+                    break;
+                }else if(perguntas.childNodes[9].value===""){
+                    alert("Opção Inválida")
+                    salvar = false
+                    break;
+                }else if(perguntas.childNodes[11].value===""){
+                    alert("Opção Inválida")
+                    salvar = false
+                    break;
+                }else if(perguntas.childNodes[12].childNodes[1].value===""){
+                    alert("Seleciona a Alternativa Correta")
+                    salvar = false
+                    break;
+                }else{
+                    const novaPergunta = {
                     titulo: perguntas.childNodes[1].value, // Titulo
                     opcaoA: perguntas.childNodes[3].value, // Opção 1
                     opcaoB: perguntas.childNodes[5].value, // Opção 1
@@ -69,37 +93,22 @@ const EditarTeste = () =>{
                     opcaoD: perguntas.childNodes[9].value, // Opção 4
                     opcaoE: perguntas.childNodes[11].value, // Opção 5
                     resposta: perguntas.childNodes[12].childNodes[1].value // Opção correta
+                    }
+                    listaNovasPerguntas.push(novaPergunta)
                 }
-                listaNovasPerguntas.push(novaPergunta)
-            }
+                
         }
-
-        salvarNoBanco(listaNovasPerguntas)
+        if(salvar){
+            salvarNoBanco(listaNovasPerguntas)
+            window.location="http://localhost:3000/addteste"
+        } 
     }
 
     const salvarNoBanco = async (novaPergunta) => {
-        let listaPerguntas = [];
-
-        try {
-            await fetch('http://localhost:8080/testes/'+idTeste, {
-                method: "GET",
-                headers: {'Content-type': 'application/json'},
-            })
-            .then(response => {
-                return response.json()
-            })
-            .then(async data => {
-                listaPerguntas = data.perguntas
-            })
-        } catch(e){
-            console.log(e)
-        }
-
-        let novaLista = listaPerguntas.concat(novaPergunta);
         
         const dados = {
                 id: teste,
-                perguntas: novaLista
+                perguntas: novaPergunta
         }
 
         const dadosJ = JSON.stringify(dados)
@@ -169,9 +178,7 @@ const EditarTeste = () =>{
                 </section>
                     <input class="btn" type="button" value="Add Pergunta" onClick={() => {addPergunta()}}/>
                 <div class="containerBtn">
-                    <Link to="/addteste">
                        <input id="salvar" class="btn" type="button" value="Salvar" onClick={() => {btnSalvar()}}/> 
-                    </Link>
                 </div>
                 <Link to="/">
                      <button class="btnVoltar" type="button">Cancelar</button>
